@@ -3,6 +3,7 @@ import re
 import time
 import json
 import random
+import requests
 import dns.resolver
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -308,11 +309,11 @@ def scrape_pagination(driver):
                 table_data = get_all_table_data(driver)
                 save_data_to_json(table_data=table_data, url=driver.current_url)
 
-            driver.execute_script("""
-                ['header', 'footer'].forEach(tag => {
-                    document.querySelectorAll(tag).forEach(el => el.remove());
-                });
-            """)
+            # driver.execute_script("""
+            #     ['header', 'footer'].forEach(tag => {
+            #         document.querySelectorAll(tag).forEach(el => el.remove());
+            #     });
+            # """)
 
             if not next_button or not next_button.is_displayed() or not next_button.is_enabled():
                 break
@@ -519,34 +520,38 @@ urls = [
 for url in urls:
     excluded_extensions = {".pdf", ".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp", ".zip", ".rar", ".mp4", ".mp3"}
     if not any(url.lower().endswith(ext) for ext in excluded_extensions):
-        options = webdriver.ChromeOptions()
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-        driver.get(url)
-        driver.maximize_window()
-        time.sleep(3)
+        response = requests.get(url)
+        if response.status_code == 200:
+            options = webdriver.ChromeOptions()
+            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+            driver.get(url)
+            driver.maximize_window()
+            time.sleep(3)
 
-        accept_cookies(driver)
-        smooth_scroll_to_bottom(driver)
-        social_data = extract_contact_info(driver)
-        mx_records, mail_provider, mail_status = get_mx_records(urlparse(url).netloc)
-        company_data = {
-            "Domain": urlparse(url).netloc.split("www.")[-1],
-            "Title": driver.title,
-            "Description": get_description(driver),
-            "MX Records": mx_records,
-            "Mail Provider": mail_provider,
-            "Mail Status": mail_status
-        }
-        save_data_to_json(social_data=social_data, company_data=company_data)
+            accept_cookies(driver)
+            smooth_scroll_to_bottom(driver)
 
-        pagination = scrape_pagination(driver)
-        if driver and not pagination:
-            iframes = driver.find_elements(By.TAG_NAME, 'iframe')
-            for iframe in iframes:
-                driver.switch_to.frame(iframe)
-                body_text = driver.find_element(By.TAG_NAME, 'body').text.strip()
-                if body_text:
-                    scrape_pagination(driver)
-                driver.switch_to.default_content()
+            social_data = extract_contact_info(driver)
+            mx_records, mail_provider, mail_status = get_mx_records(urlparse(url).netloc)
+            company_data = {
+                "Domain": urlparse(url).netloc.split("www.")[-1],
+                "Title": driver.title,
+                "Description": get_description(driver),
+                "MX Records": mx_records,
+                "Mail Provider": mail_provider,
+                "Mail Status": mail_status
+            }
 
-        driver.quit()
+            save_data_to_json(social_data=social_data, company_data=company_data)
+
+            pagination = scrape_pagination(driver)
+            if driver and not pagination:
+                iframes = driver.find_elements(By.TAG_NAME, 'iframe')
+                for iframe in iframes:
+                    driver.switch_to.frame(iframe)
+                    body_text = driver.find_element(By.TAG_NAME, 'body').text.strip()
+                    if body_text:
+                        scrape_pagination(driver)
+                    driver.switch_to.default_content()
+
+            driver.quit()
