@@ -1,0 +1,428 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container text-center mt-5 mb-5">
+    <h1>DataHarvesting Pro</h1>
+</div>
+
+<!-- Pagination Toggle Switch (applies to both forms) -->
+<div class="container d-flex flex-column justify-content-center align-items-center">
+  <label class="switch mb-3" title="Enable Pagination">
+      <input type="checkbox" id="toggleSwitch" value="on">
+      <span class="slider round"></span>
+  </label>
+</div>
+
+<!-- Form for website URL scraping -->
+<form action="{% url 'home' %}" method="POST" id="urlForm">
+  {% csrf_token %}
+  <div class="container d-flex flex-column justify-content-center align-items-center">
+      <div class="input-group w-50">
+          <input type="text" class="form-control" name="url" placeholder="Enter website URL..." required autocomplete="off" autocorrect="off" spellcheck="false">
+          <button class="btn btn-primary" type="submit">Start Scraping</button>
+      </div>
+  </div>
+</form>
+
+<!-- Form for uploading Excel file -->
+<form action="{% url 'home' %}" method="POST" enctype="multipart/form-data" id="fileForm" class="mt-4">
+  {% csrf_token %}
+  <div class="container text-center">
+      <label for="excel_file" class="form-label mb-2">Upload Excel File:</label>
+      <div class="d-flex justify-content-center">
+          <input type="file" name="excel_file" id="excel_file" accept=".xls,.xlsx" class="form-control w-auto me-2" required>
+          <button class="btn btn-primary" type="submit">Start Scraping</button>
+      </div>
+  </div>
+</form>
+
+{% if messages %}
+  <div class="container mt-3">
+    {% for message in messages %}
+      {% with alert_class="primary" %}
+        {% if message.tags %}
+          {% if message.tags == "error" %}
+            {% with alert_class="danger" %}
+              <div class="alert alert-{{ alert_class }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endwith %}
+          {% else %}
+            {% with alert_class=message.tags %}
+              <div class="alert alert-{{ alert_class }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endwith %}
+          {% endif %}
+        {% else %}
+          <div class="alert alert-{{ alert_class }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endif %}
+      {% endwith %}
+    {% endfor %}
+  </div>
+{% endif %}
+
+<!-- Table for displaying extracted data -->
+<div class="table-responsive mt-5 container">
+  <table class="table container table-bordered table-striped" id="websites-table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col" style="max-width: 500px;">Website URL</th>
+        <th scope="col" style="min-width: 170px;">Pagination Enabled</th>
+        <th scope="col" style="min-width: 170px;">Scraping Status</th>
+        <th scope="col" style="min-width: 170px;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if websites_data %}
+        {% for entry in websites_data %}
+        <tr data-website-id="{{ entry.id }}">
+          <td>{{ entry.id }}</td>
+          <td class="text-truncate" style="max-width: 500px; word-wrap: break-word;">
+            <a href="{{ entry.url }}" target="_blank" rel="noopener noreferrer">
+              {{ entry.url }}
+            </a>
+          </td>
+          <td>
+            <span class="{% if entry.pagination_enabled %}text-success{% else %}text-danger{% endif %}">
+              {{ entry.pagination_enabled|yesno:"Enabled,Disabled" }}
+            </span>
+          </td>
+          <td>
+            <span class="
+              {% if entry.scraping_status == 'pending' %}text-warning
+              {% elif entry.scraping_status == 'in_progress' %}text-primary
+              {% elif entry.scraping_status == 'completed' %}text-success
+              {% else %}text-secondary{% endif %}">
+              {{ entry.get_scraping_status_display }}
+            </span>
+          </td>
+          <td>
+            <!-- Buttons with onclick events to show the id and button clicked in the console -->
+            <button 
+              id="domain-data-{{ entry.id }}" 
+              class="btn btn-primary" 
+              {% if entry.scraping_status != 'completed' %}disabled{% endif %}
+              onclick="showIdAndButton('{{ entry.id }}', this)">
+              Domain Data
+            </button>
+            <button 
+              id="staff-data-{{ entry.id }}" 
+              class="btn btn-secondary" 
+              {% if entry.scraping_status != 'completed' %}disabled{% endif %}
+              onclick="showIdAndButton('{{ entry.id }}', this)">
+              Staff Data
+            </button>
+          </td>
+        </tr>
+        {% endfor %}
+      {% else %}
+      <tr>
+        <td colspan="5" class="text-center">No data available</td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+<h2 id="domainDataHeading" class="text-center mb-5 mt-5" style="display: none;">Domain Data</h2>
+<div class="mt-4 container" style="overflow-x: auto;">
+  <table id="domainDataTable" class="table table-bordered table-striped" style="display: none;">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col" style="min-width: 150px;">Domain</th>
+        <th scope="col" style="min-width: 250px;">Title</th>
+        <th scope="col" style="min-width: 200px;">Emails</th>
+        <th scope="col" style="min-width: 150px;">Phone Numbers</th>
+        <th scope="col" style="min-width: 200px;">Social Media Links</th>
+        <th scope="col" style="min-width: 200px;">Contact Links</th>
+        <th scope="col" style="min-width: 200px;">MX Records</th>
+        <th scope="col" style="min-width: 130px;">Mail Status</th>
+        <th scope="col" style="min-width: 200px;">Mail Provider</th>
+        <th scope="col" style="min-width: 300px;">Company Description</th>
+        <th scope="col" style="min-width: 150px;">Created At</th>
+        <th scope="col" style="min-width: 150px;">Updated At</th>
+      </tr>
+    </thead>
+    <tbody id="domainDataRows">
+    </tbody>
+  </table>
+</div>
+
+<h2 id="StaffDataHeading" class="text-center mb-5 mt-5" style="display: none;">Staff Data</h2>
+<div class="mt-4 container" style="overflow-x: auto;">
+  <table id="StaffDataTable" class="table table-bordered table-striped" style="display: none;">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col" style="min-width: 150px;">ID</th>
+        <th scope="col" style="min-width: 150px;">URL</th>
+        <th scope="col" style="min-width: 500px;">DATA</th>
+        <th scope="col" style="min-width: 150px;">Created At</th>
+      </tr>
+    </thead>
+    <tbody id="StaffDataRows">
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const toggleSwitch = document.getElementById("toggleSwitch");
+      const urlForm = document.getElementById("urlForm");
+      const fileForm = document.getElementById("fileForm");
+
+      function addPaginationField(form) {
+          let existingField = form.querySelector('input[name="pagination"]');
+          if (existingField) {
+              existingField.remove();
+          }
+          if (toggleSwitch.checked) {
+              let hiddenInput = document.createElement("input");
+              hiddenInput.type = "hidden";
+              hiddenInput.name = "pagination";
+              hiddenInput.value = "on";
+              form.appendChild(hiddenInput);
+          }
+      }
+
+      urlForm.addEventListener("submit", function() {
+          addPaginationField(urlForm);
+      });
+
+      fileForm.addEventListener("submit", function() {
+          addPaginationField(fileForm);
+      });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let isCompleted = false;
+    let hasError = false;
+  
+    function fetchDataForWebsite(websiteId) {
+      if (!websiteId) return;
+
+      const apiUrl = `/api/scraping-status/${websiteId}`;
+  
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data[0]) {
+            showDomainData([data[0]]);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          hasError = true;
+        });
+    }
+  
+    function showDomainData(data) {
+      const rowsContainer = document.getElementById('domainDataRows');
+      const table = document.getElementById('domainDataTable');
+      const heading = document.getElementById('domainDataHeading');
+  
+      if (!rowsContainer) {
+        console.error('Error: Table body container not found');
+        return;
+      }
+  
+      rowsContainer.innerHTML = '';
+      heading.style.display = 'block';
+      table.style.display = 'block';
+  
+      data.forEach(domain => {
+        const row = document.createElement('tr');
+        const emails = Array.isArray(domain.emails) ? domain.emails.join(", ") : '';
+        const phoneNumbers = Array.isArray(domain.phone_numbers) ? domain.phone_numbers.join(", ") : '';
+        const socialMediaLinks = Array.isArray(domain.social_media_links) ? domain.social_media_links.join(", ") : '';
+        const contactLinks = Array.isArray(domain.contact_links) ? domain.contact_links.join(", ") : '';
+        const mxRecords = Array.isArray(domain.mx_records) ? domain.mx_records.join(", ") : '';
+  
+        row.innerHTML = `
+          <td>${domain.domain || ''}</td>
+          <td>${domain.title || ''}</td>
+          <td>${emails}</td>
+          <td>${phoneNumbers}</td>
+          <td>${socialMediaLinks}</td>
+          <td>${contactLinks}</td>
+          <td>${mxRecords}</td>
+          <td>${domain.mail_status || ''}</td>
+          <td>${domain.mail_provider || ''}</td>
+          <td>${domain.company_description || ''}</td>
+          <td>${domain.created_at || ''}</td>
+          <td>${domain.updated_at || ''}</td>
+        `;
+        rowsContainer.appendChild(row);
+      });
+    }
+
+    function fetchStaffData(websiteId) {
+      if (!websiteId) return;
+      
+      const apiUrl = `/api/staff-data/${websiteId}`;
+      
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.length > 0) {
+            showStaffData(data);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching staff data:', error);
+        });
+    }
+  
+    function showStaffData(data) {
+      const rowsContainer = document.getElementById('StaffDataRows');
+      const table = document.getElementById('StaffDataTable');
+      const heading = document.getElementById('StaffDataHeading');
+
+      
+      if (!rowsContainer) {
+        console.error('Error: Staff table body container not found');
+        return;
+      }
+      
+      rowsContainer.innerHTML = '';
+      heading.style.display = 'block';
+      table.style.display = 'block';
+      
+      console.log(data)
+      data.forEach(staff => {
+        const row = document.createElement('tr');
+        const formattedData = JSON.stringify(staff.data, null, 2);
+        row.innerHTML = `
+          <td>${staff.id || ''}</td>
+          <td><a href="${staff.url || ''}" target="_blank">${staff.url || ''}</a></td>
+          <td><textarea readonly style="width: 100%; height: 100px;">${formattedData}</textarea></td>
+          <td>${staff.scraped_at || ''}</td>
+        `;
+        rowsContainer.appendChild(row);
+      });
+    }
+  
+    window.showIdAndButton = function(id, button) {
+      var buttonText = button.textContent.trim();
+
+      if (buttonText === "Domain Data") {
+        console.log("Button clicked: Domain Data for ID: " + id);
+        fetchDataForWebsite(id);
+      } else if (buttonText === "Staff Data") {
+        console.log("Button clicked: Staff Data for ID: " + id);
+        fetchStaffData(id);
+      } else {
+        console.log("Unknown button clicked for ID: " + id + " " + buttonText);
+      }
+    };
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const rowsPerPage = 10;
+    const table = document.getElementById("websites-table");
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const paginationContainer = document.createElement("div");
+    paginationContainer.classList.add("pagination-container", "mt-3", "text-end");
+    table.parentNode.appendChild(paginationContainer);
+  
+    let currentPage = 1;
+    function displayPage(pageNumber) {
+        const start = (pageNumber - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        rows.forEach((row, index) => {
+            row.style.display = index >= start && index < end ? "" : "none";
+        });
+        currentPage = pageNumber;
+        setupPagination();
+    }
+  
+    function setupPagination() {
+        paginationContainer.innerHTML = "";
+        const totalPages = Math.ceil(rows.length / rowsPerPage);
+        const maxVisiblePages = 5;
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+  
+        if (startPage > 1) {
+            addPaginationButton("<", currentPage - 1);
+            if (startPage > 2) {
+                addPaginationButton("...", null);
+            }
+        }
+        for (let i = startPage; i <= endPage; i++) {
+            addPaginationButton(i, i);
+        }
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                addPaginationButton("...", null);
+            }
+            addPaginationButton(">", currentPage + 1);
+        }
+    }
+  
+    function addPaginationButton(text, page) {
+        const button = document.createElement("button");
+        button.innerText = text;
+        button.classList.add("btn", "btn-sm", "btn-outline-primary", "m-1");
+        if (page === currentPage) {
+            button.classList.add("active");
+        }
+        if (page !== null) {
+            button.addEventListener("click", () => displayPage(page));
+        } else {
+            button.disabled = true;
+        }
+        paginationContainer.appendChild(button);
+    }
+  
+    if (rows.length > rowsPerPage) {
+        displayPage(1);
+    }
+
+    // Sorting functionality with button in headers
+    document.querySelectorAll("#websites-table th").forEach((header, index) => {
+      const sortButton = document.createElement("span");
+      sortButton.innerHTML = " ↑";
+      sortButton.dataset.order = "asc";
+      header.appendChild(sortButton);
+
+      header.style.cursor = "pointer";
+      header.addEventListener("click", function () {
+          const isAscending = sortButton.dataset.order === "asc";
+          sortButton.dataset.order = isAscending ? "desc" : "asc";
+          sortButton.innerHTML = isAscending ? " ↓" : " ↑";
+          const sortedRows = rows.sort((rowA, rowB) => {
+              const cellA = rowA.cells[index].textContent.trim();
+              const cellB = rowB.cells[index].textContent.trim();
+              return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+          });
+          tbody.innerHTML = "";
+          sortedRows.forEach(row => tbody.appendChild(row));
+          displayPage(1);
+      });
+    });
+  
+  });
+</script>
+{% endblock script %}

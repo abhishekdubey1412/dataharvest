@@ -1,0 +1,40 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+environment/
+
+# Django-related files
+*.log
+db.sqlite3
+/db.sqlite3-journal
+/media/
+staticfiles/
+*.pyc
+
+# Secret files
+.env
+*.pem
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.iml
+*.sublime-workspace
+
+# macOS system files
+.DS_Store
+
+# Logs and temp files
+*.log
+*.swp
+*.swo
+*.~undo
+
+# Selenium-related binaries
+chromedriver
+geckodriver
