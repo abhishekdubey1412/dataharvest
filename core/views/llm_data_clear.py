@@ -37,8 +37,6 @@ class DeepSeekExtractor:
         except Exception as e:
             return None
 
-        return None
-
 class ExtractDataView(View):
     def post(self, request):
         try:
