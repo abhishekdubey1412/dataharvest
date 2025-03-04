@@ -1,6 +1,108 @@
 from bs4 import BeautifulSoup
 from core.models.raw_data import create_raw_data
 
+EXCLUDED_TAGS = {
+    "header", "footer", "script", "style", "noscript", "nav", "iframe", 
+    "input", "svg", "aside", "button", "link", "meta", "picture", 
+    "source", "object", "embed", "param", "canvas", "map", "area", "figure",
+    "img", "br", "hr", "i", "table"
+}
+
+class HtmlExtractor:
+    def __init__(self, html):
+        self.html = html
+        self.extracted_data = []
+
+    def extract_and_save_data(self):
+        """Extracts structured data from HTML and stores it in `self.extracted_data`."""
+        soup = BeautifulSoup(self.html, "html.parser")
+        
+        for tag in soup.find_all(EXCLUDED_TAGS):
+            tag.decompose()
+
+        def get_direct_text(tag):
+            """Extracts direct text content from an HTML tag."""
+            return tag.get_text(strip=True) if tag.string else ""
+
+        def build_json(tag, parent_path=""):
+            """Recursively constructs a structured JSON representation."""
+            if not tag.name:
+                return None
+
+            if tag.name == "a" and not tag.has_attr("href"):
+                return None
+            
+            if tag.name == "p" and len(tag.get_text(strip=True)) > 50:
+                return None
+        
+            current_path = f"{parent_path}.{tag.name}" if parent_path else tag.name
+            
+            children = [
+                build_json(child, current_path) for child in tag.find_all(recursive=False)
+            ]
+            children = [child for child in children if child]
+            
+            if len(children) == 1:
+                return children[0]
+            
+            if tag.name == "div" and any(isinstance(child, dict) and child.get("tag", "").endswith("div") for child in children):
+                return children
+            
+            node = {"tag": current_path}
+            
+            if tag.name == "a" and tag.has_attr("href") and tag["href"] != "#":
+                node["href"] = tag["href"]
+            
+            text = get_direct_text(tag)
+            if text:
+                node["text"] = text
+            
+            if children:
+                node["children"] = children
+            
+            if not node.get("text") and not node.get("href") and not node.get("children"):
+                return None
+            
+            if "children" in node and len(node) == 1:
+                return node["children"]
+            
+            return node
+
+        self.extracted_data = build_json(soup.body) if soup.body else []
+        return self.extracted_data if isinstance(self.extracted_data, list) else [self.extracted_data]
+
+    def process_extracted_data(self):
+        """Processes the extracted data and returns the final structured output."""
+        tag_data = {}
+
+        def extract_tags(node):
+            if isinstance(node, dict):
+                tag_name = node.get("tag", "")
+                
+                if tag_name:
+                    if tag_name not in tag_data:
+                        tag_data[tag_name] = []
+                    
+                    tag_info = node.get("text", node.get("href", None))
+                    if tag_info:
+                        tag_data[tag_name].append(tag_info)
+                
+                if "children" in node:
+                    for child in node["children"]:
+                        extract_tags(child)
+            
+            elif isinstance(node, list):
+                for item in node:
+                    extract_tags(item)
+
+        extract_tags(self.extracted_data)
+        tag_data = {key: value for key, value in tag_data.items() if value}
+
+        checked_keys = {key for key in tag_data.keys() if len({tuple(single_data) if isinstance(single_data, list) else single_data for single_data in tag_data[key]}) == 1}
+        unique_keys = [key for key in tag_data.keys() if key not in checked_keys]
+
+        return {key: tag_data[key] for key in unique_keys}
+
 class DataExtracted:
     @staticmethod
     def get_tables_data(soup):
@@ -42,69 +144,12 @@ class DataExtracted:
                         tables_data[f"table{index}"] = table_data
 
         return tables_data
-
-    @staticmethod
-    def get_cleaned_soup(soup):
-        tags_to_remove = [
-            "header", "footer", "script", "style", "noscript", "nav", "iframe", "table",
-            "br", "hr", "input", "svg", "aside", "button", "link", "meta", "picture", 
-            "source", "object", "embed", "param", "canvas", "map", "area", "img", "i"
-        ]
-
-        for tags in tags_to_remove:
-            for tag in soup.find_all(tags):
-                tag.decompose()
-        
-        for pagination in soup.find_all(class_=lambda x: x is not None and isinstance(x, str) and "pagination" in x.lower()):
-            pagination.decompose()
-
-        for tag in soup.find_all(True):
-            if tag.text.strip() == "" or tag.text.strip() ==  None:
-                tag.decompose()
-        
-        for tag in soup.find_all(True):
-            for attribute in ['onload', 'onclick', 'style']:
-                del tag[attribute]
-
-        return soup
-
-    @staticmethod
-    def get_cleaned_data(soup):
-        """Recursively extract nested tags into key-value pairs, handling special <a> links."""
-        data = {}
-        if not soup:
-            return data
-        
-        for child in soup.find_all(recursive=False):
-            child_key = child.name
-            
-            if child_key == "a" and child.has_attr("href"):
-                href = child["href"]
-                text = child.get_text(strip=True)
-                if href.startswith(("mailto:", "tel:", "ph:")):
-                    value = {"text": text, "href": href}
-                else:
-                    value = text
-            elif not child.find():  # Leaf node (no nested tags)
-                value = child.get_text(strip=True)
-            else:
-                value = DataExtracted.get_cleaned_data(child)
-
-            if child_key in data:
-                if isinstance(data[child_key], list):
-                    data[child_key].append(value)
-                else:
-                    data[child_key] = [data[child_key], value]
-            else:
-                data[child_key] = value if value else None
-
-        # Filter out None values
-        return {k: v for k, v in data.items() if v is not None}
-    
+ 
     @staticmethod
     def extract_data(driver):
         soup = BeautifulSoup(driver.page_source, "html.parser")
         tables_data = DataExtracted.get_tables_data(soup)
-        cleaned_soup = DataExtracted.get_cleaned_soup(soup.find("body"))
-        get_cleaned_data = DataExtracted.get_cleaned_data(cleaned_soup)
-        create_raw_data(url=driver.current_url, data={"tables": tables_data, "get_cleaned_data": get_cleaned_data})
+        extractor = HtmlExtractor(driver.page_source)
+        extracted_data = extractor.extract_and_save_data()
+        processed_data = extractor.process_extracted_data()
+        create_raw_data(url=driver.current_url, data={"tables": tables_data, "get_cleaned_data": processed_data})
