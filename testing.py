@@ -4602,1307 +4602,1309 @@
 # """
 
 
-# # html = """
+html = """
     
-# # <!DOCTYPE html>
-# # <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-# # <head>
-# #     <meta charset="UTF-8">
-# #     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-# #     <meta name="keywords" content="" />
-# #     <meta name="description" content="" />
-# #     <meta name="author" content="" />
-# #     <title>Aabhyasa || Leading in webinar providers</title>
-# #     <base href="https://aabhyasa.com/">
-# # <!-- Favicon-->
-# # <link rel="icon" href="images/aabhyasa_logo_element.png" type="image/x-icon">
-
-
-# # <!-- Bootstrap 5 CSS -->
-# # <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-# # <!-- Font Awesome CSS -->
-# # <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Aabhyasa || Leading in webinar providers</title>
+    <base href="https://aabhyasa.com/">
+<!-- Favicon-->
+<link rel="icon" href="images/aabhyasa_logo_element.png" type="image/x-icon">
 
 
-# # <!-- custom files link  -->
-# # <link rel="stylesheet" href="assets/css/style.css">
-# # <link rel="stylesheet" href="assets/css/responsive.css">
-
-# # <!-- owl carousel css  -->
-# # <link rel="stylesheet" href="assets/css/owl.carousel.css">
-# # <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-# # <!-- Sweet Alert -->
-# # <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-# # <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-# # </head>
-
-# # <body>
-
-# #     <!-- Navbar content  -->
-# # <div class="top-header py-3">
-# #     <div class="container-fluid d-flex justify-content-between text-black">
-# #         <div class="social-contact">
-# #             <a href="mailto:info@aabhyasa.com">
-# #                 <i class="fa-solid fa-envelope"></i>
-# #                 <span class="d-none d-md-inline-block">info@aabhyasa.com</span>
-# #             </a>
-# #             <!--<a href="#" class="ms-3">-->
-# #             <!--    <i class="fa-solid fa-phone"></i>-->
-# #             <!--    <span class="d-none d-md-inline-block"> +1 234 4567 8910</span>-->
-# #             <!--</a>-->
-# #         </div>
-# #         <div >
-# #             <p class="tagline">Innovative and Diversified Professional Webinar
-# #             </p>
-# #         </div>
-
-# #     </div>
-# # </div>
-
-# # </div>
-# # <header>
-# #     <div class="container-fluid">
-# #         <a href="index" class="logo">
-# #             <img src="images/aabhyasa_logo_element.png" alt="" class="img-fluid">aabhyasa
-# #         </a>
-# #         <nav class="navigation">
-# #             <ul>
-# #                 <li><a href="index">Home</a></li>
-# #                 <li><a href="about">About</a></li>
-# #                 <li><a href="services">Services</a></li>
-# #                 <li><a href="team">Team</a></li>
-# #                 <li><a href="career">Career</a></li>
-# #                 <li><a href="contact">Contact</a></li>
-
-# #             </ul>
-# #         </nav>
-# #         <div class="menuToggle" onclick="ToggleMenu();"><i class="fa-solid fa-bars-staggered"></i></div>
-# #     </div>
-# # </header>        
-# #     <!-- carousel home start -->
-# #     <section class="home-header">
-# #         <div id="home_carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-# #             <!-- <div class="gradient"></div> -->
-# #             <div class="carousel-inner">
-# #                 <div class="carousel-item active">
-# #                     <img src="images/carousel-banner/banner3.jpg" class="d-block w-100" alt="...">
-# #                     <div class="carousel-caption">
-# #                         <h1 class="slide-up">Innovative Learning Solutions</h1>
-# #                         <h5 class="slide-up">Innovatively, our webinar platform upholds trust, confidence, and determination—ensuring excellence within a compact timeframe.</h5>
-# #                         <div class="mt-5 slide-up">
-# #                             <a href="/contact" class="main-btn me-2">Contact us <i class="fa-solid fa-chevron-right"></i></a>
-# #                             <a href="/about" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a>
-# #                         </div>
-# #                     </div>
-# #                 </div>
-# #                 <div class="carousel-item">
-# #                     <img src="images/carousel-banner/banner2.jpg" class="d-block w-100" alt="...">
-# #                     <div class="carousel-caption">
-# #                         <h1 class="slide-up">Innovative Learning Solutions</h1>
-# #                         <h5 class="slide-up">Innovatively, our webinar platform upholds trust, confidence, and determination—ensuring excellence within a compact timeframe.</h5>
-# #                         <div class="mt-5 slide-up">
-# #                             <a href="/contact" class="main-btn me-2">Contact us <i class="fa-solid fa-chevron-right"></i></a>
-# #                             <a href="/about" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a>
-# #                         </div>
-# #                     </div>
-# #                 </div>
-# #                 <div class="carousel-item">
-# #                     <img src="images/carousel-banner/banner1.jpg" class="d-block w-100" alt="...">
-# #                     <div class="carousel-caption">
-# #                         <h1 class="slide-up">Innovative Learning Solutions</h1>
-# #                         <h5 class="slide-up">Innovatively, our webinar platform upholds trust, confidence, and determination—ensuring excellence within a compact timeframe.</h5>
-# #                         <div class="mt-5 slide-up">
-# #                             <a href="/contact" class="main-btn me-2">Contact us <i class="fa-solid fa-chevron-right"></i></a>
-# #                             <a href="/about" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a>
-# #                         </div>
-# #                     </div>
-# #                 </div>
-# #             </div>
-# #             <button class="carousel-control-prev" type="button" data-bs-target="#home_carousel" data-bs-slide="prev">
-# #                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-# #                 <span class="visually-hidden">Previous</span>
-# #             </button>
-# #             <button class="carousel-control-next" type="button" data-bs-target="#home_carousel" data-bs-slide="next">
-# #                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-# #                 <span class="visually-hidden">Next</span>
-# #             </button>
-# #         </div>
-# #     </section>
-# #     <!-- carousel home end -->
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 
-# #     <!-- about and mission section start -->
-# #     <section>
-# #         <div class="container-fluid wrapper">
-# #             <div class="heading">
-# #                 <h2>Welcome to <span>Aabhyasa</span></h2>
-# #             </div>
-# #             <div class="row mx-2">
-# #                 <div class="col-md-6 col-12 about-div">
-# #                     <div>
-# #                         <h3 class="sub_heading">About Us</h3>
-# #                         <p>
-# #                             Welcome to Aabhyasa, where knowledge meets opportunity! We are your go-to hub for cutting-edge webinars spanning the dynamic worlds of US Healthcare, Medical Coding and Billing, Human Resources, Pharmaceutical, Banking, Finance, and Real Estate. Our mission is simple: to equip you with the insights and updates you need to thrive in today’s fast-paced professional landscape. Imagine a place where industry pioneers gather to share their knowledge, where you can tap into the collective wisdom of experts, and where your career potential can skyrocket. That’s what Aabhyasa is all about.
-# #                         </p>
-# #                         <h3 class="sub_heading">Our Mission</h3>
-# #                         <p>
-# #                         Our mission at Aabhyasa is to empower professionals and organisations by delivering high-quality, relevant, and actionable knowledge through our expertly curated webinars. We strive to bridge the gap between information and implementation, helping you stay ahead in a rapidly evolving world.
-# #                         </p>
+<!-- custom files link  -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
 
-# #                     </div>
+<!-- owl carousel css  -->
+<link rel="stylesheet" href="assets/css/owl.carousel.css">
+<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+<!-- Sweet Alert -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
 
-# #                     <div class="my-3">
-# #                         <!-- <a href="#" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a> -->
-# #                         <img src="images/about-us.png" alt="" class="img-fluid">
-# #                     </div>
-# #                 </div>
-# #                 <div class="col-md-6 col-12 mission-div">
-# #                     <div>
-# #                         <h3 class="sub_heading">Our Vision</h3>
-# #                         <p>
-# #                         We envision a world where continuous learning and professional development are accessible to all. By providing cutting-edge webinars, we aim to create a community of well-informed, skilled, and proactive professionals who drive innovation and excellence in their fields.
-# #                         </p>
+<body>
+
+    <!-- Navbar content  -->
+<div class="top-header py-3">
+    <div class="container-fluid d-flex justify-content-between text-black">
+        <div class="social-contact">
+            <a href="mailto:info@aabhyasa.com">
+                <i class="fa-solid fa-envelope"></i>
+                <span class="d-none d-md-inline-block">info@aabhyasa.com</span>
+            </a>
+            <!--<a href="#" class="ms-3">-->
+            <!--    <i class="fa-solid fa-phone"></i>-->
+            <!--    <span class="d-none d-md-inline-block"> +1 234 4567 8910</span>-->
+            <!--</a>-->
+        </div>
+        <div >
+            <p class="tagline">Innovative and Diversified Professional Webinar
+            </p>
+        </div>
+
+    </div>
+</div>
+
+</div>
+<header>
+    <div class="container-fluid">
+        <a href="index" class="logo">
+            <img src="images/aabhyasa_logo_element.png" alt="" class="img-fluid">aabhyasa
+        </a>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index">Home</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="services">Services</a></li>
+                <li><a href="team">Team</a></li>
+                <li><a href="career">Career</a></li>
+                <li><a href="contact">Contact</a></li>
+
+            </ul>
+        </nav>
+        <div class="menuToggle" onclick="ToggleMenu();"><i class="fa-solid fa-bars-staggered"></i></div>
+    </div>
+</header>        
+    <!-- carousel home start -->
+    <section class="home-header">
+        <div id="home_carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <!-- <div class="gradient"></div> -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/carousel-banner/banner3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption">
+                        <h1 class="slide-up">Innovative Learning Solutions</h1>
+                        <h5 class="slide-up">Innovatively, our webinar platform upholds trust, confidence, and determination—ensuring excellence within a compact timeframe.</h5>
+                        <div class="mt-5 slide-up">
+                            <a href="/contact" class="main-btn me-2">Contact us <i class="fa-solid fa-chevron-right"></i></a>
+                            <a href="/about" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/carousel-banner/banner2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption">
+                        <h1 class="slide-up">Innovative Learning Solutions</h1>
+                        <h5 class="slide-up">Innovatively, our webinar platform upholds trust, confidence, and determination—ensuring excellence within a compact timeframe.</h5>
+                        <div class="mt-5 slide-up">
+                            <a href="/contact" class="main-btn me-2">Contact us <i class="fa-solid fa-chevron-right"></i></a>
+                            <a href="/about" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/carousel-banner/banner1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption">
+                        <h1 class="slide-up">Innovative Learning Solutions</h1>
+                        <h5 class="slide-up">Innovatively, our webinar platform upholds trust, confidence, and determination—ensuring excellence within a compact timeframe.</h5>
+                        <div class="mt-5 slide-up">
+                            <a href="/contact" class="main-btn me-2">Contact us <i class="fa-solid fa-chevron-right"></i></a>
+                            <a href="/about" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#home_carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#home_carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <!-- carousel home end -->
 
 
-# #                     </div>
-# #                     <div>
-# #                         <h3 class="sub_heading">Our Goal</h3>
-# #                         <p>
-# #                         At Aabhyasa, our goal is to revolutionise the way professionals gain industry-specific knowledge and skills. We are dedicated to empowering you with cutting-edge insights and practical expertise through our dynamic webinars on US healthcare, medical coding and billing, HR, Pharma, Banking, Finance, and Real Estate. By fostering a culture of continuous learning and innovation, we aim to bridge knowledge gaps and create a vibrant community of experts and learners. Our mission is to transform your professional journey, helping you stay ahead of industry trends and achieve excellence in your field. Join us and experience the power of informed proactive growth.
-# #                         </p>
+    <!-- about and mission section start -->
+    <section>
+        <div class="container-fluid wrapper">
+            <div class="heading">
+                <h2>Welcome to <span>Aabhyasa</span></h2>
+            </div>
+            <div class="row mx-2">
+                <div class="col-md-6 col-12 about-div">
+                    <div>
+                        <h3 class="sub_heading">About Us</h3>
+                        <p>
+                            Welcome to Aabhyasa, where knowledge meets opportunity! We are your go-to hub for cutting-edge webinars spanning the dynamic worlds of US Healthcare, Medical Coding and Billing, Human Resources, Pharmaceutical, Banking, Finance, and Real Estate. Our mission is simple: to equip you with the insights and updates you need to thrive in today’s fast-paced professional landscape. Imagine a place where industry pioneers gather to share their knowledge, where you can tap into the collective wisdom of experts, and where your career potential can skyrocket. That’s what Aabhyasa is all about.
+                        </p>
+                        <h3 class="sub_heading">Our Mission</h3>
+                        <p>
+                        Our mission at Aabhyasa is to empower professionals and organisations by delivering high-quality, relevant, and actionable knowledge through our expertly curated webinars. We strive to bridge the gap between information and implementation, helping you stay ahead in a rapidly evolving world.
+                        </p>
+
+                    </div>
+
+                    <div class="my-3">
+                        <!-- <a href="#" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a> -->
+                        <img src="images/about-us.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-6 col-12 mission-div">
+                    <div>
+                        <h3 class="sub_heading">Our Vision</h3>
+                        <p>
+                        We envision a world where continuous learning and professional development are accessible to all. By providing cutting-edge webinars, we aim to create a community of well-informed, skilled, and proactive professionals who drive innovation and excellence in their fields.
+                        </p>
 
 
-# #                     </div>
+                    </div>
+                    <div>
+                        <h3 class="sub_heading">Our Goal</h3>
+                        <p>
+                        At Aabhyasa, our goal is to revolutionise the way professionals gain industry-specific knowledge and skills. We are dedicated to empowering you with cutting-edge insights and practical expertise through our dynamic webinars on US healthcare, medical coding and billing, HR, Pharma, Banking, Finance, and Real Estate. By fostering a culture of continuous learning and innovation, we aim to bridge knowledge gaps and create a vibrant community of experts and learners. Our mission is to transform your professional journey, helping you stay ahead of industry trends and achieve excellence in your field. Join us and experience the power of informed proactive growth.
+                        </p>
 
-# #                     <div class="my-3">
-# #                         <!-- <a href="#" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a> -->
-# #                         <img src="images/mission.jpg" alt="" class="img-fluid">
-# #                     </div>
-# #                 </div>
-# #             </div>
-# #         </div>
-# #     </section>
-# #     <!-- about and mission section end -->
 
-# #     <!-- Our organizers sections start -->
-# #     <section class="organizers-section">
-# #         <div class="container-fluid wrapper">
-# #             <div class="heading">
-# #                 <h2 class="ms-3">
-# #                     Our Team
-# #                 </h2>
-# #             </div>
-# #             <div class="row mx-2 row-gap-5">
-# #                                 <div class="col-lg-6 col-12 d-flex flex-md-row flex-column ">
-# #                     <img src="images/team/gopal-yadav.jpg" alt="Gopal Yadav" class="img-fluid rounded-2 mb-3 me-3 w-auto  object-fit-cover" style="max-width: 300px;">
-# #                     <div class="col organizers_details">
-# #                                                     <a class="name" href="team/gopal-yadav" >Mr. Gopal Yadav</a>
-# #                         <p class="title">Director, Aabhyasa</p>
-# #                         <div class="social_links">
-# #                             <a href="https://www.linkedin.com/in/gopal-y-959451208/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                             <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
-# #                             <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
+                    </div>
 
-# #                         </div>
-# #                         <p class="desc">
-# #                             He has a wealth of experience that spans marketing, webinars, technology, compliance, and every essential business facet. His all-encompassing expertise, from managing technology resources to navigating complex regulatory landscapes, enables the company to flourish in a dynamic market. He sets the strategic direction for Aabhyasa Technologies, focusing on leveraging technology for learning and development. His mantra is "never settle," inspiring his team to strive for continuous improvement and innovation across industries.                        </p>
-# #                         <a href="team/gopal-yadav" class="view-btn fs-6 p-0 fst-italic">
-# #                             Read more
-# #                         </a>
-# #                     </div>
-# #                 </div>
+                    <div class="my-3">
+                        <!-- <a href="#" class="fill-btn">Read more <i class="fa-solid fa-chevron-right"></i></a> -->
+                        <img src="images/mission.jpg" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about and mission section end -->
+
+    <!-- Our organizers sections start -->
+    <section class="organizers-section">
+        <div class="container-fluid wrapper">
+            <div class="heading">
+                <h2 class="ms-3">
+                    Our Team
+                </h2>
+            </div>
+            <div class="row mx-2 row-gap-5">
+                                <div class="col-lg-6 col-12 d-flex flex-md-row flex-column ">
+                    <img src="images/team/gopal-yadav.jpg" alt="Gopal Yadav" class="img-fluid rounded-2 mb-3 me-3 w-auto  object-fit-cover" style="max-width: 300px;">
+                    <div class="col organizers_details">
+                                                    <a class="name" href="team/gopal-yadav" >Mr. Gopal Yadav</a>
+                        <p class="title">Director, Aabhyasa</p>
+                        <div class="social_links">
+                            <a href="https://www.linkedin.com/in/gopal-y-959451208/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
+                            <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
+
+                        </div>
+                        <p class="desc">
+                            He has a wealth of experience that spans marketing, webinars, technology, compliance, and every essential business facet. His all-encompassing expertise, from managing technology resources to navigating complex regulatory landscapes, enables the company to flourish in a dynamic market. He sets the strategic direction for Aabhyasa Technologies, focusing on leveraging technology for learning and development. His mantra is "never settle," inspiring his team to strive for continuous improvement and innovation across industries.                        </p>
+                        <a href="team/gopal-yadav" class="view-btn fs-6 p-0 fst-italic">
+                            Read more
+                        </a>
+                    </div>
+                </div>
                 
-# #                 <div class="col-lg-6 col-12 d-flex flex-md-row flex-column">
-# #                     <img src="images/team/govind-yadav.jpeg" alt="Govind Yadav" class="img-fluid rounded-2 mb-3 me-3 w-auto  object-fit-cover" style="max-width: 300px;">
-# #                     <div class="col organizers_details">
-# #                                                     <a class="name" href="team/gobind-yadav">Mr. Gobind Yadav</a>
-# #                         <p class="title">Director, Aabhyasa</p>
-# #                         <div class="social_links">
-# #                             <a href="https://www.linkedin.com/in/gobind-yadav-57714964/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                         </div>
-# #                         <p class="desc">
-# #                             He seamlessly orchestrates the company’s overall operations with a sharp focus on strategy, compliance, and data management. With an in-depth knowledge of regulatory standards, payment systems, and management practices, he ensures that every aspect of the business functions smoothly. His forward-thinking approach, combined with his mastery of compliance and operational intricacies, helps the company stay ahead of industry demands. Gobind’s leadership is defined by his unwavering energy and his belief that true success lies in breaking away from the norm, guiding the team to develop action-driven strategies that set them apart from the competition.                        </p>
-# #                         <a href="team/gobind-yadav" class="view-btn fs-6 p-0 fst-italic">
-# #                             Read more
-# #                         </a>
-# #                     </div>
-# #                 </div>
+                <div class="col-lg-6 col-12 d-flex flex-md-row flex-column">
+                    <img src="images/team/govind-yadav.jpeg" alt="Govind Yadav" class="img-fluid rounded-2 mb-3 me-3 w-auto  object-fit-cover" style="max-width: 300px;">
+                    <div class="col organizers_details">
+                                                    <a class="name" href="team/gobind-yadav">Mr. Gobind Yadav</a>
+                        <p class="title">Director, Aabhyasa</p>
+                        <div class="social_links">
+                            <a href="https://www.linkedin.com/in/gobind-yadav-57714964/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                        <p class="desc">
+                            He seamlessly orchestrates the company’s overall operations with a sharp focus on strategy, compliance, and data management. With an in-depth knowledge of regulatory standards, payment systems, and management practices, he ensures that every aspect of the business functions smoothly. His forward-thinking approach, combined with his mastery of compliance and operational intricacies, helps the company stay ahead of industry demands. Gobind’s leadership is defined by his unwavering energy and his belief that true success lies in breaking away from the norm, guiding the team to develop action-driven strategies that set them apart from the competition.                        </p>
+                        <a href="team/gobind-yadav" class="view-btn fs-6 p-0 fst-italic">
+                            Read more
+                        </a>
+                    </div>
+                </div>
 
                 
                 
-# #                 <div class="col-lg-12">
-# #                     <div class="row">
-# #                                                  <div class="col-lg-4 col-md-6 col-12 mb-5">
-# #                             <div class="row">
-# #                                 <div class="col-5">
-# #                                     <div class="member-img">
-# #                                         <img class=" img-fluid" src="images/team/virendra-tiwari.jpeg">
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col organizers_details">
-# #                                                                             <a class="name" href="team/virendra-kumar-tiwari">Mr. Virendra Kumar Tiwari</a>
-# #                                     <p class="title">Assistant Manager Human Resources</p>
-# #                                     <div class="social_links">
-# #                                         <a href="https://linkedin.com/in/virendra-kumar-tiwari-6a487785" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                         <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
-# #                                         <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
+                <div class="col-lg-12">
+                    <div class="row">
+                                                 <div class="col-lg-4 col-md-6 col-12 mb-5">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="member-img">
+                                        <img class=" img-fluid" src="images/team/virendra-tiwari.jpeg">
+                                    </div>
+                                </div>
+                                <div class="col organizers_details">
+                                                                            <a class="name" href="team/virendra-kumar-tiwari">Mr. Virendra Kumar Tiwari</a>
+                                    <p class="title">Assistant Manager Human Resources</p>
+                                    <div class="social_links">
+                                        <a href="https://linkedin.com/in/virendra-kumar-tiwari-6a487785" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                        <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
+                                        <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
 
-# #                                     </div>
-# #                                     <p class="desc">
+                                    </div>
+                                    <p class="desc">
                                         
-# #                                         Mr. Virendra Kumar Tiwari is a dynamic leader with over a decade of expertise in Human Resources and Operations and  a expert of talent acquisition, retention, and HR compliance, he ...                                    </p>
-# #                                     <a href="team/virendra-kumar-tiwari" class="view-btn fs-6 p-0 fst-italic">
-# #                                         Read more
-# #                                     </a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
+                                        Mr. Virendra Kumar Tiwari is a dynamic leader with over a decade of expertise in Human Resources and Operations and  a expert of talent acquisition, retention, and HR compliance, he ...                                    </p>
+                                    <a href="team/virendra-kumar-tiwari" class="view-btn fs-6 p-0 fst-italic">
+                                        Read more
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                                                 
-# #                                                 <div class="col-lg-4 col-md-6 col-12 mb-5">
-# #                             <div class="row">
-# #                                 <div class="col-5">
-# #                                     <div class="member-img">
-# #                                         <img class=" img-fluid" src="images/team/krishna.jpeg">
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col organizers_details">
-# #                                                                             <a class="name" href="team/krishna-kumar-jaiswal">Mr. Krishna Kumar Jaiswal</a>
-# #                                     <p class="title">Assistant Manager of Accounts & Finance</p>
-# #                                     <div class="social_links">
-# #                                         <a href="https://linkedin.com/in/krishna-kumar-jaiswal-aa88a44a" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                         <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
-# #                                         <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
+                                                <div class="col-lg-4 col-md-6 col-12 mb-5">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="member-img">
+                                        <img class=" img-fluid" src="images/team/krishna.jpeg">
+                                    </div>
+                                </div>
+                                <div class="col organizers_details">
+                                                                            <a class="name" href="team/krishna-kumar-jaiswal">Mr. Krishna Kumar Jaiswal</a>
+                                    <p class="title">Assistant Manager of Accounts & Finance</p>
+                                    <div class="social_links">
+                                        <a href="https://linkedin.com/in/krishna-kumar-jaiswal-aa88a44a" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                        <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
+                                        <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
 
-# #                                     </div>
-# #                                     <p class="desc">
+                                    </div>
+                                    <p class="desc">
                                         
-# #                                         As Assistant Manager of Accounts & Finance, he expertly navigates the complexities of financial management, budgeting, compliance, and risk mitigation, ensuring the company’s long-term growth. With a solid academic foundation ...                                    </p>
-# #                                     <a href="team/krishna-kumar-jaiswal" class="view-btn fs-6 p-0 fst-italic">
-# #                                         Read more
-# #                                     </a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
+                                        As Assistant Manager of Accounts & Finance, he expertly navigates the complexities of financial management, budgeting, compliance, and risk mitigation, ensuring the company’s long-term growth. With a solid academic foundation ...                                    </p>
+                                    <a href="team/krishna-kumar-jaiswal" class="view-btn fs-6 p-0 fst-italic">
+                                        Read more
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                                                 
-# #                                                 <div class="col-lg-4 col-md-6 col-12 mb-5">
-# #                             <div class="row">
-# #                                 <div class="col-5">
-# #                                     <div class="member-img">
-# #                                         <img class=" img-fluid" src="images/team/abhishek.jpeg">
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col organizers_details">
-# #                                                                             <a class="name" href="team/abhishek-jaiswal">Mr. Abhishek Jaiswal</a>
-# #                                     <p class="title">Assistant Manager of   Sales & Marketing</p>
-# #                                     <div class="social_links">
-# #                                         <a href="https://linkedin.com/in/abhishek-jaiswal-29a515125" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                         <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
-# #                                         <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
+                                                <div class="col-lg-4 col-md-6 col-12 mb-5">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="member-img">
+                                        <img class=" img-fluid" src="images/team/abhishek.jpeg">
+                                    </div>
+                                </div>
+                                <div class="col organizers_details">
+                                                                            <a class="name" href="team/abhishek-jaiswal">Mr. Abhishek Jaiswal</a>
+                                    <p class="title">Assistant Manager of   Sales & Marketing</p>
+                                    <div class="social_links">
+                                        <a href="https://linkedin.com/in/abhishek-jaiswal-29a515125" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                        <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
+                                        <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
 
-# #                                     </div>
-# #                                     <p class="desc">
+                                    </div>
+                                    <p class="desc">
                                         
-# #                                         With a Master’s in Computer Science and 8 years of experience in sales and marketing, primarily in email marketing. He is responsible for crafting innovative marketing strategies, driving major campaign ...                                    </p>
-# #                                     <a href="team/abhishek-jaiswal" class="view-btn fs-6 p-0 fst-italic">
-# #                                         Read more
-# #                                     </a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
+                                        With a Master’s in Computer Science and 8 years of experience in sales and marketing, primarily in email marketing. He is responsible for crafting innovative marketing strategies, driving major campaign ...                                    </p>
+                                    <a href="team/abhishek-jaiswal" class="view-btn fs-6 p-0 fst-italic">
+                                        Read more
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                                                 
-# #                                                 <div class="col-lg-4 col-md-6 col-12 mb-5">
-# #                             <div class="row">
-# #                                 <div class="col-5">
-# #                                     <div class="member-img">
-# #                                         <img class=" img-fluid" src="images/team/jai-prakash.jpeg">
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col organizers_details">
-# #                                                                             <a class="name" href="team/jai-prakash-maurya">Mr. Jai Prakash Maurya</a>
-# #                                     <p class="title">Team Lead Web Application Development</p>
-# #                                     <div class="social_links">
-# #                                         <a href="https://linkedin.com/in/jai-prakash-m-2857711a0" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                         <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
-# #                                         <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
+                                                <div class="col-lg-4 col-md-6 col-12 mb-5">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="member-img">
+                                        <img class=" img-fluid" src="images/team/jai-prakash.jpeg">
+                                    </div>
+                                </div>
+                                <div class="col organizers_details">
+                                                                            <a class="name" href="team/jai-prakash-maurya">Mr. Jai Prakash Maurya</a>
+                                    <p class="title">Team Lead Web Application Development</p>
+                                    <div class="social_links">
+                                        <a href="https://linkedin.com/in/jai-prakash-m-2857711a0" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                        <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
+                                        <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
 
-# #                                     </div>
-# #                                     <p class="desc">
+                                    </div>
+                                    <p class="desc">
                                         
-# #                                         He is a visionary leader in Web Application Development, with over nine years of experience crafting custom solutions that push the boundaries of innovation. Holding a bachelor’s degree in ...                                    </p>
-# #                                     <a href="team/jai-prakash-maurya" class="view-btn fs-6 p-0 fst-italic">
-# #                                         Read more
-# #                                     </a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
+                                        He is a visionary leader in Web Application Development, with over nine years of experience crafting custom solutions that push the boundaries of innovation. Holding a bachelor’s degree in ...                                    </p>
+                                    <a href="team/jai-prakash-maurya" class="view-btn fs-6 p-0 fst-italic">
+                                        Read more
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                                                 
-# #                                                 <div class="col-lg-4 col-md-6 col-12 mb-5">
-# #                             <div class="row">
-# #                                 <div class="col-5">
-# #                                     <div class="member-img">
-# #                                         <img class=" img-fluid" src="images/team/prerna-tiwari.jpeg">
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col organizers_details">
-# #                                                                             <a class="name" href="team/prerna-tiwari">Ms. Prerna Tiwari</a>
-# #                                     <p class="title">Team Lead of Operations</p>
-# #                                     <div class="social_links">
-# #                                         <a href="https://linkedin.com/in/prerna-tiwari-a73109301" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                         <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
-# #                                         <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
+                                                <div class="col-lg-4 col-md-6 col-12 mb-5">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="member-img">
+                                        <img class=" img-fluid" src="images/team/prerna-tiwari.jpeg">
+                                    </div>
+                                </div>
+                                <div class="col organizers_details">
+                                                                            <a class="name" href="team/prerna-tiwari">Ms. Prerna Tiwari</a>
+                                    <p class="title">Team Lead of Operations</p>
+                                    <div class="social_links">
+                                        <a href="https://linkedin.com/in/prerna-tiwari-a73109301" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                        <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
+                                        <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
 
-# #                                     </div>
-# #                                     <p class="desc">
+                                    </div>
+                                    <p class="desc">
                                         
-# #                                         Rising through the ranks from a Process Associate to Team Lead of Operations, she now oversees the entire operational framework, ensuring seamless project management, timely execution, and customer satisfaction. Her ...                                    </p>
-# #                                     <a href="team/prerna-tiwari" class="view-btn fs-6 p-0 fst-italic">
-# #                                         Read more
-# #                                     </a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
+                                        Rising through the ranks from a Process Associate to Team Lead of Operations, she now oversees the entire operational framework, ensuring seamless project management, timely execution, and customer satisfaction. Her ...                                    </p>
+                                    <a href="team/prerna-tiwari" class="view-btn fs-6 p-0 fst-italic">
+                                        Read more
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                                                 
-# #                                                 <div class="col-lg-4 col-md-6 col-12 mb-5">
-# #                             <div class="row">
-# #                                 <div class="col-5">
-# #                                     <div class="member-img">
-# #                                         <img class=" img-fluid" src="images/team/sandeep.jpeg">
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col organizers_details">
-# #                                                                             <a class="name" href="team/sandeep-kumar-srivastava">Mr. Sandeep Kumar Srivastava</a>
-# #                                     <p class="title">Team Lead of Data Management</p>
-# #                                     <div class="social_links">
-# #                                         <a href="https://linkedin.com/in/sandeep-srivastav-90b249189" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                         <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
-# #                                         <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
+                                                <div class="col-lg-4 col-md-6 col-12 mb-5">
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="member-img">
+                                        <img class=" img-fluid" src="images/team/sandeep.jpeg">
+                                    </div>
+                                </div>
+                                <div class="col organizers_details">
+                                                                            <a class="name" href="team/sandeep-kumar-srivastava">Mr. Sandeep Kumar Srivastava</a>
+                                    <p class="title">Team Lead of Data Management</p>
+                                    <div class="social_links">
+                                        <a href="https://linkedin.com/in/sandeep-srivastav-90b249189" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                                        <!--<a href="#"><i class="fa-solid fa-envelope"></i></a>-->
+                                        <!--<a href="#"><i class="fa-brands fa-x-twitter"></i></a>-->
 
-# #                                     </div>
-# #                                     <p class="desc">
+                                    </div>
+                                    <p class="desc">
                                         
-# #                                         As team lead of Data Management, he plays a pivotal role in overseeing data processes, ensuring data integrity, and guiding his team to optimize workflows. He is an accomplished leader ...                                    </p>
-# #                                     <a href="team/sandeep-kumar-srivastava" class="view-btn fs-6 p-0 fst-italic">
-# #                                         Read more
-# #                                     </a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
+                                        As team lead of Data Management, he plays a pivotal role in overseeing data processes, ensuring data integrity, and guiding his team to optimize workflows. He is an accomplished leader ...                                    </p>
+                                    <a href="team/sandeep-kumar-srivastava" class="view-btn fs-6 p-0 fst-italic">
+                                        Read more
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                                                 
                                                 
-# #                     </div>
-# #                 </div>
-# #             </div>
-# #             <div class="text-center">
-# #                 <a href="team" class="view-btn">
-# #                     View all Team
-# #                 </a>
-# #             </div>
-# #             <br>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="team" class="view-btn">
+                    View all Team
+                </a>
+            </div>
+            <br>
 
             
-# #         </div>
-# #     </section>
-# #     <!-- Our organizers sections end -->
-# #     <section class="our-brands-section wrapper">
-# #         <div class="heading">
-# #             <h2 class="text-auto">
-# #                 Our Brands
-# #             </h2>
-# #         </div>
-# #         <div class="container logo-slider">
-# #             <div class="owl-carousel">
-# #                 <a href="https://ecowebinarupdate.com" target="_blank"> <img src="images/brands/ecowebinar.png" class="img-fluid">
-# #                 </a>
-# #                 <a href="https://conferencepanel.com" target="_blank"> <img src="images/brands/conferencepanel.webp" class="img-fluid">
-# #                 </a>
-# #                 <a href="https://humaanized.com" target="_blank"> <img src="images/brands/humaanized.png" class="img-fluid">
-# #                 </a>
-# #                 <a href="https://ineducator.com" target="_blank"> <img src="images/brands/ineducator.png" class="img-fluid">
-# #                 </a>
-# #                 <a href="https://onlineaudiowebinar.com" target="_blank"> <img src="images/brands/oaw.png" class="img-fluid">
-# #                 </a>
-# #                 <a href="https://profeducations.com" target="_blank"> <img src="images/brands/proeducation.png" class="img-fluid">
-# #                 </a>
-# #                 <a href="https://webinarplaneur.com" target="_blank"> <img src="images/brands/webinarplaneur.png" class="img-fluid">
-# #                 </a>
-# #             </div>
-# #         </div>
-# #     </section>
+        </div>
+    </section>
+    <!-- Our organizers sections end -->
+    <section class="our-brands-section wrapper">
+        <div class="heading">
+            <h2 class="text-auto">
+                Our Brands
+            </h2>
+        </div>
+        <div class="container logo-slider">
+            <div class="owl-carousel">
+                <a href="https://ecowebinarupdate.com" target="_blank"> <img src="images/brands/ecowebinar.png" class="img-fluid">
+                </a>
+                <a href="https://conferencepanel.com" target="_blank"> <img src="images/brands/conferencepanel.webp" class="img-fluid">
+                </a>
+                <a href="https://humaanized.com" target="_blank"> <img src="images/brands/humaanized.png" class="img-fluid">
+                </a>
+                <a href="https://ineducator.com" target="_blank"> <img src="images/brands/ineducator.png" class="img-fluid">
+                </a>
+                <a href="https://onlineaudiowebinar.com" target="_blank"> <img src="images/brands/oaw.png" class="img-fluid">
+                </a>
+                <a href="https://profeducations.com" target="_blank"> <img src="images/brands/proeducation.png" class="img-fluid">
+                </a>
+                <a href="https://webinarplaneur.com" target="_blank"> <img src="images/brands/webinarplaneur.png" class="img-fluid">
+                </a>
+            </div>
+        </div>
+    </section>
     
 
-# #     <!-- our speaker start -->
-# #     <section class="speakers-section" style="display:none;">
-# #         <div class="container-fluid wrapper">
-# #             <div class="heading">
-# #                 <h2 class="ms-3">
-# #                     Our Speakers
-# #                 </h2>
-# #             </div>
-# #             <div class="row mx-2 row-gap-5">
-# #                 <div class="col-lg-3 col-12  ">
-# #                     <p>At aabhyasa, we are proud to feature a diverse lineup of speakers who are leaders and innovators in their respective fields. Our speakers bring a wealth of knowledge, experience, and passion to the topics they cover, ensuring that every event is both informative and inspiring.</p>
-# #                     <br>
-# #                     <p>Our speakers have participated in numerous high-profile events, sharing their expertise on topics such as:</p>
-# #                     <div class="our-speaker">
-# #                         <ul>
-# #                             <li><strong>Industry Pioneers</strong></li>
-# #                             <li><strong>Thought Leaders</strong></li>
-# #                             <li><strong>Innovators and Entrepreneurs</strong></li>
-# #                             <li><strong>Educators and Researchers</strong></li>
-# #                         </ul>
-# #                     </div>
-# #                     <a class="fill-btn my-3" data-bs-toggle="modal" data-bs-target="#speaker-opportunity-modal">Apply to Speak!</a>
+    <!-- our speaker start -->
+    <section class="speakers-section" style="display:none;">
+        <div class="container-fluid wrapper">
+            <div class="heading">
+                <h2 class="ms-3">
+                    Our Speakers
+                </h2>
+            </div>
+            <div class="row mx-2 row-gap-5">
+                <div class="col-lg-3 col-12  ">
+                    <p>At aabhyasa, we are proud to feature a diverse lineup of speakers who are leaders and innovators in their respective fields. Our speakers bring a wealth of knowledge, experience, and passion to the topics they cover, ensuring that every event is both informative and inspiring.</p>
+                    <br>
+                    <p>Our speakers have participated in numerous high-profile events, sharing their expertise on topics such as:</p>
+                    <div class="our-speaker">
+                        <ul>
+                            <li><strong>Industry Pioneers</strong></li>
+                            <li><strong>Thought Leaders</strong></li>
+                            <li><strong>Innovators and Entrepreneurs</strong></li>
+                            <li><strong>Educators and Researchers</strong></li>
+                        </ul>
+                    </div>
+                    <a class="fill-btn my-3" data-bs-toggle="modal" data-bs-target="#speaker-opportunity-modal">Apply to Speak!</a>
 
-# #                 </div>
-# #                 <div class="col-lg-9  ps-lg-5">
-# #                     <div class="row">
-# #                                                     <div class="col-sm-10 col-md-6 mb-5">
-# #                                 <div class="row">
-# #                                     <div class="col-5">
-# #                                         <img class="rounded-2 img-fluid" src="https://conferencepanel.com/dashboard/public/speakers/unnamed_1690437113.jpg" alt="Pauline Sanders">
-# #                                     </div>
-# #                                     <div class="col organizers_details">
-# #                                         <a class="name">Pauline Sanders</a>
-# #                                         <p class="title">RN, MBA, CPHRM, LNCC, CCM</p>
-# #                                         <div class="social_links">
-# #                                             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                             <a href="#"><i class="fa-solid fa-envelope"></i></a>
-# #                                             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-# #                                         </div>
-# #                                         <p class="desc">Pauline has over 25 years of experience in Healthcare Quality Management, which includes risk management and legal nurse consulting. She has directed and managed clinical risk mana</p>
-# #                                         <a href="#" style="float: right;"><i>Read More</i></a>
-# #                                     </div>
-# #                                 </div>
-# #                             </div>
-# #                                                     <div class="col-sm-10 col-md-6 mb-5">
-# #                                 <div class="row">
-# #                                     <div class="col-5">
-# #                                         <img class="rounded-2 img-fluid" src="https://conferencepanel.com/dashboard/public/speakers/02_EU_OSATO_Shot_2_242C_1709620882.jpg" alt="Osato F. Chitou">
-# #                                     </div>
-# #                                     <div class="col organizers_details">
-# #                                         <a class="name">Osato F. Chitou</a>
-# #                                         <p class="title">Esq., MPH</p>
-# #                                         <div class="social_links">
-# #                                             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                             <a href="#"><i class="fa-solid fa-envelope"></i></a>
-# #                                             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-# #                                         </div>
-# #                                         <p class="desc">Osato F. Chitou, Esq., MPH&nbsp;is an attorney by training, however, before finding the law and compliance was both an educator and a social worker. These experiences have allowed </p>
-# #                                         <a href="#" style="float: right;"><i>Read More</i></a>
-# #                                     </div>
-# #                                 </div>
-# #                             </div>
-# #                                                     <div class="col-sm-10 col-md-6 mb-5">
-# #                                 <div class="row">
-# #                                     <div class="col-5">
-# #                                         <img class="rounded-2 img-fluid" src="https://conferencepanel.com/dashboard/public/speakers/Susan-Strauss200_1647416383.png" alt="Susan Strauss">
-# #                                     </div>
-# #                                     <div class="col organizers_details">
-# #                                         <a class="name">Susan Strauss</a>
-# #                                         <p class="title">Workplace, School Harassment &</p>
-# #                                         <div class="social_links">
-# #                                             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                             <a href="#"><i class="fa-solid fa-envelope"></i></a>
-# #                                             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-# #                                         </div>
-# #                                         <p class="desc">Dr. Susan Strauss&nbsp;is a national and international consultant, speaker, and trainer in organizational effectiveness and management development. She has established numerous onb</p>
-# #                                         <a href="#" style="float: right;"><i>Read More</i></a>
-# #                                     </div>
-# #                                 </div>
-# #                             </div>
-# #                                                     <div class="col-sm-10 col-md-6 mb-5">
-# #                                 <div class="row">
-# #                                     <div class="col-5">
-# #                                         <img class="rounded-2 img-fluid" src="https://conferencepanel.com/dashboard/public/speakers/Dr-Mackles-MD-MBA-LHRM_1681277623.jpg" alt="Arnold Mackles">
-# #                                     </div>
-# #                                     <div class="col organizers_details">
-# #                                         <a class="name">Arnold Mackles</a>
-# #                                         <p class="title">MD, MBA</p>
-# #                                         <div class="social_links">
-# #                                             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                                             <a href="#"><i class="fa-solid fa-envelope"></i></a>
-# #                                             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-# #                                         </div>
-# #                                         <p class="desc">Dr. Mackles practiced hospital-based neonatal medicine in Florida for over twenty-two years after completing a Pediatric Residency at Lenox Hill Hospital in New York City, and a Fe</p>
-# #                                         <a href="#" style="float: right;"><i>Read More</i></a>
-# #                                     </div>
-# #                                 </div>
-# #                             </div>
-# #                                             </div>
-# #                     <div class="text-md-end text-center">
-# #                         <a href="speakers" class="view-btn text-black">
-# #                             View all
-# #                         </a>
-# #                     </div>
-# #                 </div>
-# #             </div>
-# #         </div>
-# #     </section>
-# #     <!-- our speaker end -->
+                </div>
+                <div class="col-lg-9  ps-lg-5">
+                    <div class="row">
+                                                    <div class="col-sm-10 col-md-6 mb-5">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <img class="rounded-2 img-fluid" src="https://conferencepanel.com/dashboard/public/speakers/unnamed_1690437113.jpg" alt="Pauline Sanders">
+                                    </div>
+                                    <div class="col organizers_details">
+                                        <a class="name">Pauline Sanders</a>
+                                        <p class="title">RN, MBA, CPHRM, LNCC, CCM</p>
+                                        <div class="social_links">
+                                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                        </div>
+                                        <p class="desc">Pauline has over 25 years of experience in Healthcare Quality Management, which includes risk management and legal nurse consulting. She has directed and managed clinical risk mana</p>
+                                        <a href="#" style="float: right;"><i>Read More</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="col-sm-10 col-md-6 mb-5">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <img class="rounded-2 img-fluid" src="https://conferencepanel.com/dashboard/public/speakers/02_EU_OSATO_Shot_2_242C_1709620882.jpg" alt="Osato F. Chitou">
+                                    </div>
+                                    <div class="col organizers_details">
+                                        <a class="name">Osato F. Chitou</a>
+                                        <p class="title">Esq., MPH</p>
+                                        <div class="social_links">
+                                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                        </div>
+                                        <p class="desc">Osato F. Chitou, Esq., MPH&nbsp;is an attorney by training, however, before finding the law and compliance was both an educator and a social worker. These experiences have allowed </p>
+                                        <a href="#" style="float: right;"><i>Read More</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="col-sm-10 col-md-6 mb-5">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <img class="rounded-2 img-fluid" src="https://conferencepanel.com/dashboard/public/speakers/Susan-Strauss200_1647416383.png" alt="Susan Strauss">
+                                    </div>
+                                    <div class="col organizers_details">
+                                        <a class="name">Susan Strauss</a>
+                                        <p class="title">Workplace, School Harassment &</p>
+                                        <div class="social_links">
+                                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                        </div>
+                                        <p class="desc">Dr. Susan Strauss&nbsp;is a national and international consultant, speaker, and trainer in organizational effectiveness and management development. She has established numerous onb</p>
+                                        <a href="#" style="float: right;"><i>Read More</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="col-sm-10 col-md-6 mb-5">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <img class="rounded-2 img-fluid" src="https://conferencepanel.com/dashboard/public/speakers/Dr-Mackles-MD-MBA-LHRM_1681277623.jpg" alt="Arnold Mackles">
+                                    </div>
+                                    <div class="col organizers_details">
+                                        <a class="name">Arnold Mackles</a>
+                                        <p class="title">MD, MBA</p>
+                                        <div class="social_links">
+                                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                                        </div>
+                                        <p class="desc">Dr. Mackles practiced hospital-based neonatal medicine in Florida for over twenty-two years after completing a Pediatric Residency at Lenox Hill Hospital in New York City, and a Fe</p>
+                                        <a href="#" style="float: right;"><i>Read More</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                                            </div>
+                    <div class="text-md-end text-center">
+                        <a href="speakers" class="view-btn text-black">
+                            View all
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our speaker end -->
 
-# #     <!-- ondemand form section start -->
-# #     <section class="ondemand-section" style="display:none;">
-# #         <div class="container wrapper">
-# #             <div class="row mx-2">
-# #                 <div class="col-lg-8 col-md-10 col-12 mx-auto text-center">
-# #                     <h2>webinar on-demand</h2>
-# #                     <p>Dive into the world of personalized webinars available nationwide! Suggest your topic, specify the number of attendees, and let us handle the rest. We will ensure a seamless and impactful virtual session for your organization.</p>
+    <!-- ondemand form section start -->
+    <section class="ondemand-section" style="display:none;">
+        <div class="container wrapper">
+            <div class="row mx-2">
+                <div class="col-lg-8 col-md-10 col-12 mx-auto text-center">
+                    <h2>webinar on-demand</h2>
+                    <p>Dive into the world of personalized webinars available nationwide! Suggest your topic, specify the number of attendees, and let us handle the rest. We will ensure a seamless and impactful virtual session for your organization.</p>
 
-# #                     <a class="main-btn" data-bs-toggle="modal" data-bs-target="#on-demand-modal">Make a Request</a>
-# #                 </div>
-# #             </div>
-# #         </div>
-# #     </section>
-# #     <!-- ondemand form section end -->
+                    <a class="main-btn" data-bs-toggle="modal" data-bs-target="#on-demand-modal">Make a Request</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ondemand form section end -->
 
-# #     <!-- live events secion start -->
-# #     <section class="events" style="display:none;">
-# #         <div class="container-fluid wrapper">
-# #             <div class="heading">
-# #                 <h2 class="ms-3">
-# #                     Live Schedule
-# #                 </h2>
-# #             </div>
+    <!-- live events secion start -->
+    <section class="events" style="display:none;">
+        <div class="container-fluid wrapper">
+            <div class="heading">
+                <h2 class="ms-3">
+                    Live Schedule
+                </h2>
+            </div>
 
-# #             <div class="row mx-2 row-gap-5">
-# #                                     <div class="col-12">
-# #                         <div class="event-box">
-# #                             <div class="row row-gap-2">
-# #                                 <div class="col-lg-2 col-12">
-# #                                     <h3 class="date">05 Mar 2025</h3>
+            <div class="row mx-2 row-gap-5">
+                                    <div class="col-12">
+                        <div class="event-box">
+                            <div class="row row-gap-2">
+                                <div class="col-lg-2 col-12">
+                                    <h3 class="date">05 Mar 2025</h3>
 
-# #                                     <p class="speaker">Michael Strong</p>
-# #                                 </div>
-# #                                 <div class="col-lg-8 col-md-10 col-12">
-# #                                     <div class="event-details">
-# #                                         <span class="industry">MEDICAL BILLING CODING WEBINARS</span> &vert;
-# #                                         <span class="time">11:00 AM EST</span> &vert;
-# #                                         <span class="duration">90 MINUTES</span>
+                                    <p class="speaker">Michael Strong</p>
+                                </div>
+                                <div class="col-lg-8 col-md-10 col-12">
+                                    <div class="event-details">
+                                        <span class="industry">MEDICAL BILLING CODING WEBINARS</span> &vert;
+                                        <span class="time">11:00 AM EST</span> &vert;
+                                        <span class="duration">90 MINUTES</span>
 
-# #                                         <h3>Mastering Pathology and Lab Coding Updates 2025: Stay Ahead in Co...</h3>
-# #                                         <p><p>As of 2025, there are more than 100 new codes, almost 20 deletions, and approximately 10 revisions for pathology and laboratory CPT codes. However, the bulk of these are all related to Proprietary Laboratory...</p>
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col-md-1 col-12 text-end text-lg-center my-auto">
-# #                                     <a href="https://conferencepanel.com/conference/mastering-pathology-and-lab-coding-updates-2025" class="main-btn " target="_blank">View</a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
-# #                     </div>
-# #                                     <div class="col-12">
-# #                         <div class="event-box">
-# #                             <div class="row row-gap-2">
-# #                                 <div class="col-lg-2 col-12">
-# #                                     <h3 class="date">11 Mar 2025</h3>
+                                        <h3>Mastering Pathology and Lab Coding Updates 2025: Stay Ahead in Co...</h3>
+                                        <p><p>As of 2025, there are more than 100 new codes, almost 20 deletions, and approximately 10 revisions for pathology and laboratory CPT codes. However, the bulk of these are all related to Proprietary Laboratory...</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-12 text-end text-lg-center my-auto">
+                                    <a href="https://conferencepanel.com/conference/mastering-pathology-and-lab-coding-updates-2025" class="main-btn " target="_blank">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-12">
+                        <div class="event-box">
+                            <div class="row row-gap-2">
+                                <div class="col-lg-2 col-12">
+                                    <h3 class="date">11 Mar 2025</h3>
 
-# #                                     <p class="speaker">Lyman G. Sornberger</p>
-# #                                 </div>
-# #                                 <div class="col-lg-8 col-md-10 col-12">
-# #                                     <div class="event-details">
-# #                                         <span class="industry">MEDICAL BILLING CODING WEBINARS</span> &vert;
-# #                                         <span class="time">11:30 AM EST</span> &vert;
-# #                                         <span class="duration">60 MINUTES</span>
+                                    <p class="speaker">Lyman G. Sornberger</p>
+                                </div>
+                                <div class="col-lg-8 col-md-10 col-12">
+                                    <div class="event-details">
+                                        <span class="industry">MEDICAL BILLING CODING WEBINARS</span> &vert;
+                                        <span class="time">11:30 AM EST</span> &vert;
+                                        <span class="duration">60 MINUTES</span>
 
-# #                                         <h3>Revenue Integrity and Charge Capture</h3>
-# #                                         <p><p><strong>Ensuring That All of Your Hard Work Is Accounted for And Captured</strong></p>
+                                        <h3>Revenue Integrity and Charge Capture</h3>
+                                        <p><p><strong>Ensuring That All of Your Hard Work Is Accounted for And Captured</strong></p>
 
-# # <ul>
-# # 	<li>Making Sure All Services Are Billed Correctly
-# # 	<ul>
-# # 		<li>Why It Matters: It&#39;s important to make sur...</p>
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col-md-1 col-12 text-end text-lg-center my-auto">
-# #                                     <a href="https://conferencepanel.com/conference/revenue-integrity-and-charge-capture" class="main-btn " target="_blank">View</a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
-# #                     </div>
-# #                                     <div class="col-12">
-# #                         <div class="event-box">
-# #                             <div class="row row-gap-2">
-# #                                 <div class="col-lg-2 col-12">
-# #                                     <h3 class="date">18 Mar 2025</h3>
+<ul>
+	<li>Making Sure All Services Are Billed Correctly
+	<ul>
+		<li>Why It Matters: It&#39;s important to make sur...</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-12 text-end text-lg-center my-auto">
+                                    <a href="https://conferencepanel.com/conference/revenue-integrity-and-charge-capture" class="main-btn " target="_blank">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-12">
+                        <div class="event-box">
+                            <div class="row row-gap-2">
+                                <div class="col-lg-2 col-12">
+                                    <h3 class="date">18 Mar 2025</h3>
 
-# #                                     <p class="speaker">Melveen Stevenson</p>
-# #                                 </div>
-# #                                 <div class="col-lg-8 col-md-10 col-12">
-# #                                     <div class="event-details">
-# #                                         <span class="industry">HUMAN RESOURCES</span> &vert;
-# #                                         <span class="time">12:00 PM EST</span> &vert;
-# #                                         <span class="duration">60 MINUTES</span>
+                                    <p class="speaker">Melveen Stevenson</p>
+                                </div>
+                                <div class="col-lg-8 col-md-10 col-12">
+                                    <div class="event-details">
+                                        <span class="industry">HUMAN RESOURCES</span> &vert;
+                                        <span class="time">12:00 PM EST</span> &vert;
+                                        <span class="duration">60 MINUTES</span>
 
-# #                                         <h3>Unmasking the Crisis - Tackling the Epidemic of Violence in Healt...</h3>
-# #                                         <p><p>In the healthcare industry, workplace violence has become a silent epidemic, posing significant risks to the safety and well-being of healthcare professionals. This&nbsp; 60-minute session aims to shed light...</p>
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col-md-1 col-12 text-end text-lg-center my-auto">
-# #                                     <a href="https://conferencepanel.com/conference/unmasking-the-crisis-tackling-the-epidemic-of-violence-in-healthcare-workplaces" class="main-btn " target="_blank">View</a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
-# #                     </div>
-# #                                     <div class="col-12">
-# #                         <div class="event-box">
-# #                             <div class="row row-gap-2">
-# #                                 <div class="col-lg-2 col-12">
-# #                                     <h3 class="date">11 Apr 2025</h3>
+                                        <h3>Unmasking the Crisis - Tackling the Epidemic of Violence in Healt...</h3>
+                                        <p><p>In the healthcare industry, workplace violence has become a silent epidemic, posing significant risks to the safety and well-being of healthcare professionals. This&nbsp; 60-minute session aims to shed light...</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-12 text-end text-lg-center my-auto">
+                                    <a href="https://conferencepanel.com/conference/unmasking-the-crisis-tackling-the-epidemic-of-violence-in-healthcare-workplaces" class="main-btn " target="_blank">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="col-12">
+                        <div class="event-box">
+                            <div class="row row-gap-2">
+                                <div class="col-lg-2 col-12">
+                                    <h3 class="date">11 Apr 2025</h3>
 
-# #                                     <p class="speaker">Dr. Irina Koyfman</p>
-# #                                 </div>
-# #                                 <div class="col-lg-8 col-md-10 col-12">
-# #                                     <div class="event-details">
-# #                                         <span class="industry">MEDICAL BILLING CODING WEBINARS</span> &vert;
-# #                                         <span class="time">1:00 PM EST</span> &vert;
-# #                                         <span class="duration">60 MINUTES</span>
+                                    <p class="speaker">Dr. Irina Koyfman</p>
+                                </div>
+                                <div class="col-lg-8 col-md-10 col-12">
+                                    <div class="event-details">
+                                        <span class="industry">MEDICAL BILLING CODING WEBINARS</span> &vert;
+                                        <span class="time">1:00 PM EST</span> &vert;
+                                        <span class="duration">60 MINUTES</span>
 
-# #                                         <h3>Mastering CCM: Best Practices for Patient Engagement, Workflow Ef...</h3>
-# #                                         <p><p>Chronic Care Management (CCM) continues to be one of the most impactful programs for improving patient outcomes and generating sustainable revenue for healthcare practices. However, <strong>engaging patients...</p>
-# #                                     </div>
-# #                                 </div>
-# #                                 <div class="col-md-1 col-12 text-end text-lg-center my-auto">
-# #                                     <a href="https://conferencepanel.com/conference/mastering-ccm-best-practices-for-patient-engagement-workflow-efficiency-and-maximizing-reimbursement" class="main-btn " target="_blank">View</a>
-# #                                 </div>
-# #                             </div>
-# #                         </div>
-# #                     </div>
-# #                             </div>
+                                        <h3>Mastering CCM: Best Practices for Patient Engagement, Workflow Ef...</h3>
+                                        <p><p>Chronic Care Management (CCM) continues to be one of the most impactful programs for improving patient outcomes and generating sustainable revenue for healthcare practices. However, <strong>engaging patients...</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-12 text-end text-lg-center my-auto">
+                                    <a href="https://conferencepanel.com/conference/mastering-ccm-best-practices-for-patient-engagement-workflow-efficiency-and-maximizing-reimbursement" class="main-btn " target="_blank">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
 
-# #         </div>
-# #     </section>
+        </div>
+    </section>
 
-# #     <!-- live events secion end -->
+    <!-- live events secion end -->
 
-# #     <!-- subscribe section start-->
-# #     <section class="subscribe-section">
-# #         <ul class="circles">
-# #             <li></li>
-# #             <li></li>
-# #             <li></li>
-# #             <li></li>
-# #             <li></li>
-# #             <li></li>
-# #             <li></li>
-# #             <li></li>
-# #             <li></li>
-# #             <li></li>
-# #         </ul>
-# #         <div class="container wrapper">
-# #             <div class="row  align-items-center">
-# #                 <div class="col-md-5 text-md-end text-center pe-md-3 border-end border-2 py-3">
-# #                     <h2 class="">Subscribe</h2>
-# #                     <p class="">Now, to get updates!</p>
-# #                 </div>
-# #                 <div class="col-md-7 col-12 ps-md-5 ps-0 text-md-start text-center">
-# #                     <form action="save-form.php?frm=subscribe" method="POST">
-# #                         <label for="">
-# #                             <input type="email" name="email" id="email" oninput="validateEmailSubscribe(this)" placeholder="Enter email..." required>
-# #                         </label>
+    <!-- subscribe section start-->
+    <section class="subscribe-section">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="container wrapper">
+            <div class="row  align-items-center">
+                <div class="col-md-5 text-md-end text-center pe-md-3 border-end border-2 py-3">
+                    <h2 class="">Subscribe</h2>
+                    <p class="">Now, to get updates!</p>
+                </div>
+                <div class="col-md-7 col-12 ps-md-5 ps-0 text-md-start text-center">
+                    <form action="save-form.php?frm=subscribe" method="POST">
+                        <label for="">
+                            <input type="email" name="email" id="email" oninput="validateEmailSubscribe(this)" placeholder="Enter email..." required>
+                        </label>
                         
-# #                         <button type="submit" name="submitSubscription" id="submitSubscription" class="fill-btn">Subscribe</button>
-# #                     </form>
-# #                     <span id="alertMessageEmailSubscribe" style="color: red; display: none;">Enter a valid email!</span>
-# #                 </div>
-# #             </div>
-# #         </div>
-# #     </section>
-# #     <!-- subscribe section end-->
+                        <button type="submit" name="submitSubscription" id="submitSubscription" class="fill-btn">Subscribe</button>
+                    </form>
+                    <span id="alertMessageEmailSubscribe" style="color: red; display: none;">Enter a valid email!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- subscribe section end-->
 
-# #     <!-- recorded events start  -->
-# #     <section class="events" style="display:none;">
-# #         <div class="container-fluid wrapper">
-# #             <div class="heading">
-# #                 <h2 class="ms-3">
-# #                     Past Events
-# #                 </h2>
-# #             </div>
-# #             <div class="row mx-2 row-gap-5">
-# #                             </div>
-# #         </div>
-# #     </section>
-# #     <!-- recorded events end  -->
+    <!-- recorded events start  -->
+    <section class="events" style="display:none;">
+        <div class="container-fluid wrapper">
+            <div class="heading">
+                <h2 class="ms-3">
+                    Past Events
+                </h2>
+            </div>
+            <div class="row mx-2 row-gap-5">
+                            </div>
+        </div>
+    </section>
+    <!-- recorded events end  -->
 
-# #     <!-- sponsers section start -->
-# #     <section class="logo-section">
-# #         <div class="container-fluid wrapper">
-# #             <div class="heading ">
-# #                 <h2 class="mx-auto mb-5">
-# #                     Get Certified
-# #                 </h2>
-# #             </div>
-# #             <div class="row mx-2 row-gap-3 mt-4">
-# #                 <div class="col-lg-2  col-sm-4 col-6">
-# #                     <div class="card">
-# #                         <img src="images/certificate/aapc.png" alt="">
-# #                     </div>
-# #                 </div>
-# #                 <div class="col-lg-2  col-sm-4 col-6">
-# #                     <div class="card">
-# #                         <img src="images/certificate/ahima.png" alt="">
-# #                     </div>
-# #                 </div>
-# #                 <div class="col-lg-2  col-sm-4 col-6">
-# #                     <div class="card">
-# #                         <img src="images/certificate/ancc.png" alt="">
-# #                     </div>
-# #                 </div>
-# #                 <div class="col-lg-2  col-sm-4 col-6">
-# #                     <div class="card">
-# #                         <img src="images/certificate/BCEN.png" alt="">
-# #                     </div>
-# #                 </div>
-# #                 <div class="col-lg-2  col-sm-4 col-6">
-# #                     <div class="card">
-# #                         <img src="images/certificate/hrci.png" alt="">
-# #                     </div>
-# #                 </div>
-# #                 <div class="col-lg-2  col-sm-4 col-6">
-# #                     <div class="card">
-# #                         <img src="images/certificate/SHRM.png" alt="">
-# #                     </div>
-# #                 </div>
-# #             </div>
-# #         </div>
-# #     </section>
-# #     <!-- sponsers section end -->
+    <!-- sponsers section start -->
+    <section class="logo-section">
+        <div class="container-fluid wrapper">
+            <div class="heading ">
+                <h2 class="mx-auto mb-5">
+                    Get Certified
+                </h2>
+            </div>
+            <div class="row mx-2 row-gap-3 mt-4">
+                <div class="col-lg-2  col-sm-4 col-6">
+                    <div class="card">
+                        <img src="images/certificate/aapc.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2  col-sm-4 col-6">
+                    <div class="card">
+                        <img src="images/certificate/ahima.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2  col-sm-4 col-6">
+                    <div class="card">
+                        <img src="images/certificate/ancc.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2  col-sm-4 col-6">
+                    <div class="card">
+                        <img src="images/certificate/BCEN.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2  col-sm-4 col-6">
+                    <div class="card">
+                        <img src="images/certificate/hrci.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-2  col-sm-4 col-6">
+                    <div class="card">
+                        <img src="images/certificate/SHRM.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- sponsers section end -->
 
 
-# #     <!-- contact section start -->
-# #     <!--<section class="contact-section">-->
-# #     <!--    <div class="container-fluid ">-->
-# #     <!--        <div class="row">-->
-# #     <!--            <div class="col-md-6 col-12">-->
-# #     <!--                <div class="contact-box">-->
-# #     <!--                    <div class="heading">-->
-# #     <!--                        <h2 class="ms-0">-->
-# #     <!--                            Contact us-->
-# #     <!--                        </h2>-->
-# #     <!--                    </div>-->
-# #     <!--                    <p>Need assistance or have questions? Feel free to contact us for support and inquiries. We are here to help!</p>-->
+    <!-- contact section start -->
+    <!--<section class="contact-section">-->
+    <!--    <div class="container-fluid ">-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-md-6 col-12">-->
+    <!--                <div class="contact-box">-->
+    <!--                    <div class="heading">-->
+    <!--                        <h2 class="ms-0">-->
+    <!--                            Contact us-->
+    <!--                        </h2>-->
+    <!--                    </div>-->
+    <!--                    <p>Need assistance or have questions? Feel free to contact us for support and inquiries. We are here to help!</p>-->
 
-# #     <!--                    <div class="contact-info">-->
-# #     <!--                       <p><i class="fa-solid fa-location-dot"></i>-->
-# # 	   <!--                 <b>USA 1 : &nbsp;</b><a href=""> 8 The Green, STE A, Dover, DE-19901</a>-->
-# # 	   <!--             </p>-->
-# # 	   <!--             <p><i class="fa-solid fa-location-dot"></i>-->
-# # 	   <!--                 <b>USA 2 : &nbsp;</b><a href=""> 1 Auer CT East, Brunswick, New Jersey-08816</a>-->
-# # 	   <!--             </p>-->
-# # 	   <!--             <p><i class="fa-solid fa-phone-volume"></i>-->
-# # 	   <!--                 <a href="tel:+13023634845"><b> Phone Number(USA) : &nbsp;</b>+1 (302) 363-4845</a>-->
-# # 	   <!--             </p>-->
+    <!--                    <div class="contact-info">-->
+    <!--                       <p><i class="fa-solid fa-location-dot"></i>-->
+	   <!--                 <b>USA 1 : &nbsp;</b><a href=""> 8 The Green, STE A, Dover, DE-19901</a>-->
+	   <!--             </p>-->
+	   <!--             <p><i class="fa-solid fa-location-dot"></i>-->
+	   <!--                 <b>USA 2 : &nbsp;</b><a href=""> 1 Auer CT East, Brunswick, New Jersey-08816</a>-->
+	   <!--             </p>-->
+	   <!--             <p><i class="fa-solid fa-phone-volume"></i>-->
+	   <!--                 <a href="tel:+13023634845"><b> Phone Number(USA) : &nbsp;</b>+1 (302) 363-4845</a>-->
+	   <!--             </p>-->
 	
-# # 	   <!--             <p><i class="fa-solid fa-location-dot"></i>-->
-# # 	   <!--                 <a href=""><b> India : &nbsp;</b> 4th floor, Kuber Complex, Rathyatra, Varanasi, UP-221010</a>-->
-# # 	   <!--             </p>-->
-# # 	   <!--             <p><i class="fa-solid fa-phone-volume"></i>-->
-# # 	   <!--                 <a href="tel:+919628442255"><b> Phone Number(India) : &nbsp;</b>+91 9628442255</a>-->
-# # 	   <!--             </p>-->
-# # 	   <!--             <p><i class="fa-solid fa-envelope"></i>-->
-# # 	   <!--                 <b>Email: &nbsp;</b><a href="mailto:info@aabhyasa.com" style="text-transform: lowercase;"> info@aabhyasa.com</a>-->
-# # 	   <!--             </p>-->
+	   <!--             <p><i class="fa-solid fa-location-dot"></i>-->
+	   <!--                 <a href=""><b> India : &nbsp;</b> 4th floor, Kuber Complex, Rathyatra, Varanasi, UP-221010</a>-->
+	   <!--             </p>-->
+	   <!--             <p><i class="fa-solid fa-phone-volume"></i>-->
+	   <!--                 <a href="tel:+919628442255"><b> Phone Number(India) : &nbsp;</b>+91 9628442255</a>-->
+	   <!--             </p>-->
+	   <!--             <p><i class="fa-solid fa-envelope"></i>-->
+	   <!--                 <b>Email: &nbsp;</b><a href="mailto:info@aabhyasa.com" style="text-transform: lowercase;"> info@aabhyasa.com</a>-->
+	   <!--             </p>-->
 
-# #     <!--                    </div>-->
-# #     <!--                    <div class="social-links">-->
-# #     <!--                        <a href=""><i class="fa-brands fa-facebook"></i></a>-->
-# #     <!--                        <a href=""><i class="fa-brands fa-x-twitter"></i></a>-->
+    <!--                    </div>-->
+    <!--                    <div class="social-links">-->
+    <!--                        <a href=""><i class="fa-brands fa-facebook"></i></a>-->
+    <!--                        <a href=""><i class="fa-brands fa-x-twitter"></i></a>-->
 
-# #     <!--                        <a href="https://www.linkedin.com/company/aabhyasa-technologies-pvt-ltd/mycompany/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>-->
+    <!--                        <a href="https://www.linkedin.com/company/aabhyasa-technologies-pvt-ltd/mycompany/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>-->
 
-# #     <!--                    </div>-->
+    <!--                    </div>-->
 
-# #     <!--                </div>-->
-# #     <!--            </div>-->
-# #     <!--            <div class="col-md-6 col-12 contact-form">-->
-# #     <!--                <ul class="circles">-->
-# #     <!--                    <li></li>-->
-# #     <!--                    <li></li>-->
-# #     <!--                    <li></li>-->
-# #     <!--                    <li></li>-->
-# #     <!--                    <li></li>-->
-# #     <!--                    <li></li>-->
-# #     <!--                    <li></li>-->
-# #     <!--                    <li></li>-->
-# #     <!--                    <li></li>-->
-# #     <!--                    <li></li>-->
-# #     <!--                </ul>-->
-# #     <!--                <form action="save-form.php?frm=contact" method="POST">-->
-# #     <!--                    <div class="form-control">-->
-# #     <!--                        <input type="text" id="name" name="name" oninput="validateInput(this)" required>-->
-# #     <!--                        <label> Name </label>-->
-# #     <!--                        <span id="alertMessageName" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>-->
-# #     <!--                    </div>-->
-# #     <!--                    <div class="form-control">-->
-# #     <!--                        <input type="email" id="email" name="email" oninput="validateEmail(this)" required>-->
-# #     <!--                        <label> Email </label>-->
-# #     <!--                        <span id="alertMessageEmail" style="color: red; display: none;">Invalid email input, Please enter a valid email!</span>-->
-# #     <!--                    </div>-->
-# #     <!--                    <div class="form-control">-->
-# #     <!--                        <input type="text" id="phone" name="phone" oninput="validatePhoneNumber(this)" required>-->
-# #     <!--                        <label> Phone </label>-->
-# #     <!--                        <span id="phoneAlertMessage" style="color: red; display: none;">Invalid phone number. Please enter a valid phone number.</span>-->
-# #     <!--                    </div>-->
-# #     <!--                    <div class="form-control">-->
-# #     <!--                        <textarea name="message" id="message" rows="4" oninput="validateInput(this)" rows="5"></textarea>-->
-# #     <!--                        <label> Your Message </label>-->
-# #     <!--                        <span id="alertMessageText" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>-->
-# #     <!--                    </div>-->
-# #     <!--                    <input type="hidden" id="subject" name="subject" value="Received from Homepage" oninput="validateInput(this)" required>-->
-# #     <!--                    <button class="fill-btn" type="submit" id="submit">Submit</button>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div class="col-md-6 col-12 contact-form">-->
+    <!--                <ul class="circles">-->
+    <!--                    <li></li>-->
+    <!--                    <li></li>-->
+    <!--                    <li></li>-->
+    <!--                    <li></li>-->
+    <!--                    <li></li>-->
+    <!--                    <li></li>-->
+    <!--                    <li></li>-->
+    <!--                    <li></li>-->
+    <!--                    <li></li>-->
+    <!--                    <li></li>-->
+    <!--                </ul>-->
+    <!--                <form action="save-form.php?frm=contact" method="POST">-->
+    <!--                    <div class="form-control">-->
+    <!--                        <input type="text" id="name" name="name" oninput="validateInput(this)" required>-->
+    <!--                        <label> Name </label>-->
+    <!--                        <span id="alertMessageName" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>-->
+    <!--                    </div>-->
+    <!--                    <div class="form-control">-->
+    <!--                        <input type="email" id="email" name="email" oninput="validateEmail(this)" required>-->
+    <!--                        <label> Email </label>-->
+    <!--                        <span id="alertMessageEmail" style="color: red; display: none;">Invalid email input, Please enter a valid email!</span>-->
+    <!--                    </div>-->
+    <!--                    <div class="form-control">-->
+    <!--                        <input type="text" id="phone" name="phone" oninput="validatePhoneNumber(this)" required>-->
+    <!--                        <label> Phone </label>-->
+    <!--                        <span id="phoneAlertMessage" style="color: red; display: none;">Invalid phone number. Please enter a valid phone number.</span>-->
+    <!--                    </div>-->
+    <!--                    <div class="form-control">-->
+    <!--                        <textarea name="message" id="message" rows="4" oninput="validateInput(this)" rows="5"></textarea>-->
+    <!--                        <label> Your Message </label>-->
+    <!--                        <span id="alertMessageText" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>-->
+    <!--                    </div>-->
+    <!--                    <input type="hidden" id="subject" name="subject" value="Received from Homepage" oninput="validateInput(this)" required>-->
+    <!--                    <button class="fill-btn" type="submit" id="submit">Submit</button>-->
 
-# #     <!--                </form>-->
-# #     <!--            </div>-->
-# #     <!--        </div>-->
-# #     <!--    </div>-->
-# #     <!--</section>-->
-# #     <!-- contact section end -->
+    <!--                </form>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</section>-->
+    <!-- contact section end -->
 
-# #     <!-- why us section start -->
-# #     <section class="why-us">
-# #         <div class="container-fluid wrapper">
-# #             <div class="heading">
-# #                 <h2 class="mx-auto">
-# #                     Why choose us
-# #                 </h2>
-# #             </div>
-# #             <div class="row mx-2 row-gap-3 benefits">
-# #                 <div class="col-lg-3 col-md-6 col-12">
-# #                     <div class="benefits-item">
-# #                         <img src="images/whyus-img/asset.png" alt="">
-# #                         <h4>Enhance Your Value</h4>
-# #                         <p>Healthy, knowledgeable employees are among a company's greatest assets. Stay ahead in your profession by acquiring the most up-to-date knowledge and becoming an invaluable resource to your organization.</p>
-# #                     </div>
-# #                 </div>
-# #                 <div class="col-lg-3 col-md-6 col-12">
-# #                     <div class="benefits-item">
-# #                         <img src="images/whyus-img/custom.png" alt="why us image">
-# #                         <h4>Tailored Solutions</h4>
-# #                         <p>Our solutions go beyond standard education. We provide personalized learning experiences customized to meet your specific professional needs and career goals, ensuring you gain relevant, actionable insights.</p>
-# #                     </div>
-# #                 </div>
-# #                 <div class="col-lg-3 col-md-6 col-12">
-# #                     <div class="benefits-item">
-# #                         <img src="images/whyus-img/savings.png" alt="why us image">
-# #                         <h4>Cost-Effective Insights</h4>
-# #                         <p>With our fully online sessions, you save on travel and accommodation costs. All you need is a reliable internet connection, making our programs both convenient and budget-friendly.</p>
-# #                     </div>
-# #                 </div>
-# #                 <div class="col-lg-3 col-md-6 col-12">
-# #                     <div class="benefits-item">
-# #                         <img src="images/whyus-img/career.png" alt="why us image">
-# #                         <h4>Stay Ahead of the Curve</h4>
-# #                         <p>We keep you updated with the latest industry developments and contemporary changes, ensuring you remain competitive and equipped with cutting-edge knowledge in an ever-evolving market.</p>
-# #                     </div>
-# #                 </div>
-# #             </div>
-
-
-# #             <div class="row text-center my-5 px-4 row-gap-5 mx-0 increamenting-numbers">
-# #                 <div class="col-lg-4 col-md-6 col-12 mb-2">
-# #                     <h1><span class="number-animate" data-end-value="10" data-increment="1" data-duration="2000">0</span>+</h1>
-# #                     <span>Countries</span>
-# #                 </div>
-# #                 <div class="col-lg-4 col-md-6 col-12 mb-2">
-# #                     <h1><span class="number-animate" data-end-value="900" data-increment="100" data-duration="2000">0</span>+</h1>
-# #                     <span>Webinars
-# #                     </span>
-# #                 </div>
-# #                 <div class="col-lg-4 col-md-6 col-12 mb-2">
-# #                     <h1><span class="number-animate" data-end-value="33370" data-increment="500" data-duration="2000">0</span>+</h1>
-# #                     <span>Customers
-# #                     </span>
-# #                 </div>
-# #                 <!--<div class="col-lg-3 col-md-6 col-12 mb-2">-->
-# #                 <!--    <h1><span class="number-animate" data-end-value="3052" data-increment="109" data-duration="2000">25</span>+</h1>-->
-# #                 <!--    <span>Delivered-->
-# #                 <!--    </span>-->
-# #                 <!--</div>-->
-# #             </div>
-# #         </div>
-# #     </section>
-# #     <!-- why us section end -->
-
-# #     <!-- faq section start -->
-# #     <section class="faq-section">
-# #         <div class="container-fluid wrapper">
-# #             <div class="heading">
-# #                 <h2 class="ms-3">
-# #                     FAQs
-# #                 </h2>
-# #             </div>
-# #             <div class="row mx-2">
-# #                 <div class="col-md-7 col-12">
-# #                     <details class="accordion" open>
-# #                         <summary class="accordion__title">
-# #                             <span class="accordion__marker"></span> When and how will I receive information on how to participate in a live webinar?
-# #                         </summary>
-# #                         <div class="accordion__content">
-# #                             <p>You will receive all the details of the live webinar 48 hours before the scheduled session. This includes dial-in instructions, the link, and password for accessing the webinar, as well as any handouts and related materials. You can download these from the webinar page at www.aabhyasa.com. If you don't see the email, please check your spam or junk folder.</p>
-# #                         </div>
-# #                     </details>
-# #                     <details class="accordion">
-# #                         <summary class="accordion__title">
-# #                             <span class="accordion__marker"></span> How do I register for a webinar? 
-# #                         </summary>
-# #                         <div class="accordion__content">
-# #                             To register for a webinar, visit our website, select the webinar you're interested in, and complete the registration form. Once your registration is complete, you will receive a confirmation email with further details.
-# #                         </div>
-# #                     </details>
-# #                     <details class="accordion">
-# #                         <summary class="accordion__title">
-# #                             <span class="accordion__marker"></span>Can I ask questions during the webinar? 
-# #                         </summary>
-# #                         <div class="accordion__content">
-# #                             Yes, our webinars include interactive Q&A sessions where you can ask questions and engage with the speakers. This is an excellent opportunity to gain deeper insights and clarify any doubts you may have.
-# #                         </div>
-# #                     </details>
-# #                 </div>
-
-# #             </div>
-# #         </div>
-# #     </section>
-# #     <!-- faq section end -->
-
-# #     <footer>
-# #     <div class="container-fluid wrapper">
-# #         <div class="text-center pb-4 mb-5 border-bottom">
-# #             <a href="index" class="logo">
-# #                 <img src="images/aabhyasa_logo_element.png" alt="" class="img-fluid">aabhyasa
-# #             </a>
-# #         </div>
-# #         <div class="row mx-2 row-gap-5 py-5">
-# #             <div class="col-lg-4 col-md-4 col-12">
-# #                 <h4>Reach us</h4>              
-# #                 <p><i class="fa-solid fa-location-dot"></i>
-# #                     <b>USA 1 : &nbsp;</b><a href=""> 8 The Green, STE A, Dover, DE-19901</a>
-# #                 </p>
-# #                 <p><i class="fa-solid fa-location-dot"></i>
-# #                     <b>USA 2 : &nbsp;</b><a href=""> 1 Auer CT East, Brunswick, New Jersey-08816</a>
-# #                 </p>
-# #                 <p><i class="fa-solid fa-phone-volume"></i>
-# #                     <a href="tel:+13023634845"><b>Phone Number (USA) : &nbsp;</b>+1 (302) 363-4845</a>
-# #                 </p>
-
-# #                 <p><i class="fa-solid fa-location-dot"></i>
-# #                     <a href=""><b>India : &nbsp;</b>4th floor, Kuber Complex, Rathyatra, Varanasi, UP-221010</a>
-# #                 </p>
-# #                 <p><i class="fa-solid fa-phone-volume"></i>
-# #                     <a href="tel:+919628442255"><b>Phone Number (India) : &nbsp;</b>+91 7388172255</a>
-# #                 </p>
-# #                 <p><i class="fa-solid fa-envelope"></i>
-# #                                      <b>Email: &nbsp;</b><a href="mailto:info@aabhyasa.com" style="text-transform: lowercase;">info@aabhyasa.com</a>
-# #                                     </p>
-
-# #             </div>
-# #             <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-# #                 <h4>Company</h4>
-# #                 <p><a href="about">About us</a></p>
-# #                 <p><a href="team">Leadership</a></p>
-# #                 <!--<p><a href="speakers">Speakers</a></p>-->
-# #                 <p><a href="career">Careers <span>we are hiring</span></a></p>
-# #                 <p><a href="contact">Contact Us</a></p>
-# #                 <p><a href="faq">FAQs</a></p>
-
-# #             </div>
-# #             <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-# #                 <h4>Important Links</h4>
-# #                 <p><a href="privacy-policy">Privacy Policy</a></p>
-# #                 <p><a href="terms">Terms & conditions</a></p>
-# #                 <p><a href="refund">Refund Policy</a></p>
-# #                 <p><a data-bs-toggle="modal" data-bs-target="#speaker-opportunity-modal">Speaker Opportunity</a></p>
-# #                 <p><a data-bs-toggle="modal" data-bs-target="#on-demand-modal">On-demand webinar</a></p>
-# #                 <!--<p><a href="unsubscribe">Unsubscribe</a></p>-->
-# #             </div>
-# #             <div class="col-lg-4 col-md-12 col-12 ps-lg-5 ps-0">
-# #                 <div class="row mx-0 row-gap-3">
-# #                     <div class="col-lg-12 col-md-6 col-12">
-# #                         <h4>Get in Touch</h4>
-# #                         <div class="signup_form">
-# #                             <form action="#" class="subscribe">
-# #                                 <input type="text" class="subscribe__input" placeholder="Enter Email Address">
-# #                                 <button type="button" class="subscribe__btn"><i class="fas fa-paper-plane"></i></button>
-# #                             </form>
-# #                         </div>
-# #                     </div>
-# #                     <div class="col-lg-12 col-md-6 col-12 text-md-end text-start text-lg-start">
-# #                         <!-- social icons -->
-# #                         <div class="social-icons my-lg-5 my-3">
-# #                             <a href="https://www.facebook.com/aabhyasa/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-# #                             <!--<a href=""><i class="fa-brands fa-x-twitter" target="_blank"></i></a>-->
-# #                             <!--<a href=""><i class="fa-brands fa-pinterest-p" target="_blank"></i></a>-->
-# #                             <a href="https://www.linkedin.com/company/aabhyasa-technologies-pvt-ltd/mycompany/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-# #                             <!--<a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a>-->
-
-# #                         </div>
-# #                         <!-- payment icons -->
-# #                         <div class="payment-options">
-# #                             <span>
-# #                                 <span href="">
-# #                                     <img src="images/payment-icon/master-card.png" alt="" class="img-fluid">
-# #                                 </span>
-# #                                 <span href="">
-# #                                     <img src="images/payment-icon/visa.png" alt="" class="img-fluid">
-# #                                 </span>
-# #                                 <span href="">
-# #                                     <img src="images/payment-icon/maestro.png" alt="" class="img-fluid">
-# #                                 </span>
-# #                                 <span href="">
-# #                                     <img src="images/payment-icon/american-express.png" alt="" class="img-fluid">
-# #                                 </span>
-# #                                 <span href="">
-# #                                     <img src="images/payment-icon/paypal.png" alt="" class="img-fluid">
-# #                                 </span>
-# #                             </span>
-# #                         </div>
-# #                     </div>
-# #                 </div>
+    <!-- why us section start -->
+    <section class="why-us">
+        <div class="container-fluid wrapper">
+            <div class="heading">
+                <h2 class="mx-auto">
+                    Why choose us
+                </h2>
+            </div>
+            <div class="row mx-2 row-gap-3 benefits">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="benefits-item">
+                        <img src="images/whyus-img/asset.png" alt="">
+                        <h4>Enhance Your Value</h4>
+                        <p>Healthy, knowledgeable employees are among a company's greatest assets. Stay ahead in your profession by acquiring the most up-to-date knowledge and becoming an invaluable resource to your organization.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="benefits-item">
+                        <img src="images/whyus-img/custom.png" alt="why us image">
+                        <h4>Tailored Solutions</h4>
+                        <p>Our solutions go beyond standard education. We provide personalized learning experiences customized to meet your specific professional needs and career goals, ensuring you gain relevant, actionable insights.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="benefits-item">
+                        <img src="images/whyus-img/savings.png" alt="why us image">
+                        <h4>Cost-Effective Insights</h4>
+                        <p>With our fully online sessions, you save on travel and accommodation costs. All you need is a reliable internet connection, making our programs both convenient and budget-friendly.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="benefits-item">
+                        <img src="images/whyus-img/career.png" alt="why us image">
+                        <h4>Stay Ahead of the Curve</h4>
+                        <p>We keep you updated with the latest industry developments and contemporary changes, ensuring you remain competitive and equipped with cutting-edge knowledge in an ever-evolving market.</p>
+                    </div>
+                </div>
+            </div>
 
 
-# #             </div>
-# #         </div>
+            <div class="row text-center my-5 px-4 row-gap-5 mx-0 increamenting-numbers">
+                <div class="col-lg-4 col-md-6 col-12 mb-2">
+                    <h1><span class="number-animate" data-end-value="10" data-increment="1" data-duration="2000">0</span>+</h1>
+                    <span>Countries</span>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 mb-2">
+                    <h1><span class="number-animate" data-end-value="900" data-increment="100" data-duration="2000">0</span>+</h1>
+                    <span>Webinars
+                    </span>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 mb-2">
+                    <h1><span class="number-animate" data-end-value="33370" data-increment="500" data-duration="2000">0</span>+</h1>
+                    <span>Customers
+                    </span>
+                </div>
+                <!--<div class="col-lg-3 col-md-6 col-12 mb-2">-->
+                <!--    <h1><span class="number-animate" data-end-value="3052" data-increment="109" data-duration="2000">25</span>+</h1>-->
+                <!--    <span>Delivered-->
+                <!--    </span>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </section>
+    <!-- why us section end -->
 
-# #     </div>
-# #     <div class="footer-bottom">
-# #         <span style="text-transform: lowercase;">© Aabhyasa Technologies Pvt. Ltd. , All rights reserved.</span>
-# #     </div>
-# # </footer>
+    <!-- faq section start -->
+    <section class="faq-section">
+        <div class="container-fluid wrapper">
+            <div class="heading">
+                <h2 class="ms-3">
+                    FAQs
+                </h2>
+            </div>
+            <div class="row mx-2">
+                <div class="col-md-7 col-12">
+                    <details class="accordion" open>
+                        <summary class="accordion__title">
+                            <span class="accordion__marker"></span> When and how will I receive information on how to participate in a live webinar?
+                        </summary>
+                        <div class="accordion__content">
+                            <p>You will receive all the details of the live webinar 48 hours before the scheduled session. This includes dial-in instructions, the link, and password for accessing the webinar, as well as any handouts and related materials. You can download these from the webinar page at www.aabhyasa.com. If you don't see the email, please check your spam or junk folder.</p>
+                        </div>
+                    </details>
+                    <details class="accordion">
+                        <summary class="accordion__title">
+                            <span class="accordion__marker"></span> How do I register for a webinar? 
+                        </summary>
+                        <div class="accordion__content">
+                            To register for a webinar, visit our website, select the webinar you're interested in, and complete the registration form. Once your registration is complete, you will receive a confirmation email with further details.
+                        </div>
+                    </details>
+                    <details class="accordion">
+                        <summary class="accordion__title">
+                            <span class="accordion__marker"></span>Can I ask questions during the webinar? 
+                        </summary>
+                        <div class="accordion__content">
+                            Yes, our webinars include interactive Q&A sessions where you can ask questions and engage with the speakers. This is an excellent opportunity to gain deeper insights and clarify any doubts you may have.
+                        </div>
+                    </details>
+                </div>
 
-# # <!-- On demand form modal  -->
-# # <div class="modal fade " id="on-demand-modal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
-# #     <div class="modal-dialog modal-dialog-centered">
-# #         <div class="modal-content">
-# #             <div class="modal-header-div text-center">
-# #                 <img src="images/google-forms.png" alt="" class="img-fluid">
-# #                 <h2 class="modal-title" id="staticBackdropLabel">On-Demand Webinar</h2>
-# #                 <p>Discover how we can meet your compliance needs.</p>
-# #                 <a data-bs-dismiss="modal" aria-label="Close">
-# #                     <i class="fa-solid fa-circle-xmark"></i>
-# #                 </a>
-# #             </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq section end -->
 
-# #             <div class="modal-body">
-# #                 <form action="save-form.php?frm=onDemand" method="POST">
-# #                     <fieldset>
-# #                         <div class="form-control">
-# #                             <input type="text" name="nameOD" id="nameOD" oninput="validateInput(this)" required>
-# #                             <label> Name </label>
-# #                             <span id="alertMessageNameOD" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>
-# #                         </div>
-# #                         <div class="form-control">
-# #                             <input type="text" name="organizationOD" id="organizationOD" oninput="validateInput(this)" required>
-# #                             <label> Organization </label>
-# #                             <span id="alertMessageOrg" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>
-# #                         </div>
-# #                         <div class="form-control">
-# #                             <input type="text" name="topicOD" id="topicOD" oninput="validateInput(this)" required>
-# #                             <label> Topic </label>
-# #                             <span id="alertMessageTopic" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>
-# #                         </div>
-# #                         <div class="form-control">
-# #                             <input type="text" name="phoneOD" id="phoneOD" oninput="validatePhoneNumber(this)" required>
-# #                             <label> Phone </label>
-# #                             <span id="phoneAlertMessage" style="color: red; display: none;">Invalid phone number. Please enter a valid phone number.</span>
-# #                         </div>
-# #                     </fieldset>
-# #                     <div class="cta my-3">
-# #                         <button type="submit" name="submit" id="submit" class="submit-btn d-block">Submit Request</button>
-# #                         <a href="mailto:info@aabhyasa.com" target="_blank" class="main-btn d-block mt-3"><i class="fa-solid fa-phone-volume"></i>
-# #                             Quick Contact</a>
-# #                     </div>
-# #                 </form>
-# #                 <p class="fs-6">Our Business Development Team will get in touch with you within
-# #                     24 business hours
-# #                 </p>
-# #             </div>
+    <footer>
+    <div class="container-fluid wrapper">
+        <div class="text-center pb-4 mb-5 border-bottom">
+            <a href="index" class="logo">
+                <img src="images/aabhyasa_logo_element.png" alt="" class="img-fluid">aabhyasa
+            </a>
+        </div>
+        <div class="row mx-2 row-gap-5 py-5">
+            <div class="col-lg-4 col-md-4 col-12">
+                <h4>Reach us</h4>              
+                <p><i class="fa-solid fa-location-dot"></i>
+                    <b>USA 1 : &nbsp;</b><a href=""> 8 The Green, STE A, Dover, DE-19901</a>
+                </p>
+                <p><i class="fa-solid fa-location-dot"></i>
+                    <b>USA 2 : &nbsp;</b><a href=""> 1 Auer CT East, Brunswick, New Jersey-08816</a>
+                </p>
+                <p><i class="fa-solid fa-phone-volume"></i>
+                    <a href="tel:+13023634845"><b>Phone Number (USA) : &nbsp;</b>+1 (302) 363-4845</a>
+                </p>
 
-# #         </div>
-# #     </div>
-# # </div>
-# # <!-- On demand form modal  end-->
+                <p><i class="fa-solid fa-location-dot"></i>
+                    <a href=""><b>India : &nbsp;</b>4th floor, Kuber Complex, Rathyatra, Varanasi, UP-221010</a>
+                </p>
+                <p><i class="fa-solid fa-phone-volume"></i>
+                    <a href="tel:+919628442255"><b>Phone Number (India) : &nbsp;</b>+91 7388172255</a>
+                </p>
+                <p><i class="fa-solid fa-envelope"></i>
+                                     <b>Email: &nbsp;</b><a href="mailto:info@aabhyasa.com" style="text-transform: lowercase;">info@aabhyasa.com</a>
+                                    </p>
 
-# # <!-- speaker-opportunity form modal  -->
-# # <div class="modal fade " id="speaker-opportunity-modal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
-# #     <div class="modal-dialog modal-dialog-centered">
-# #         <div class="modal-content">
-# #             <div class="modal-header-div text-center">
-# #                 <img src="images/speaker-form.png" alt="" class="img-fluid">
-# #                 <h3 class="modal-title" id="staticBackdropLabel">Opportunity To Be A Part Of Our Expert Panel</h3>
-# #                 <p>Just fill out this simple form below, and soon you will hear from us!</p>
-# #                 <a data-bs-dismiss="modal" aria-label="Close">
-# #                     <i class="fa-solid fa-circle-xmark"></i>
-# #                 </a>
-# #             </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                <h4>Company</h4>
+                <p><a href="about">About us</a></p>
+                <p><a href="team">Leadership</a></p>
+                <!--<p><a href="speakers">Speakers</a></p>-->
+                <p><a href="career">Careers <span>we are hiring</span></a></p>
+                <p><a href="contact">Contact Us</a></p>
+                <p><a href="faq">FAQs</a></p>
 
-# #             <div class="modal-body">
-# #                 <fieldset>
-# #                     <div class="form-control">
-# #                         <input type="text" required>
-# #                         <label> Name </label>
-# #                     </div>
-# #                     <div class="form-control">
-# #                         <input type="text" required>
-# #                         <label> Job Title </label>
-# #                     </div>
-# #                     <div class="form-control">
-# #                         <input type="text" required>
-# #                         <label> Phone </label>
-# #                     </div>
-# #                     <div class="form-control">
-# #                         <input type="text" required>
-# #                         <label> Company </label>
-# #                     </div>
-# #                     <div class="form-control">
-# #                         <input type="text" required>
-# #                         <label> Fax </label>
-# #                     </div>
-# #                     <div class="form-control">
-# #                         <input type="text" required>
-# #                         <label> Email </label>
-# #                     </div>
-# #                     <div class="form-control">
-# #                         <input type="text" required>
-# #                         <label> Industry </label>
-# #                     </div>
-# #                 </fieldset>
-# #                 <div class="cta my-3">
-# #                     <a class="submit-btn d-block">Submit Request</a>
-# #                     <a href="callto:+1234567890" class="main-btn d-block mt-3"><i class="fa-solid fa-phone-volume"></i>
-# #                         Quick Call</a>
-# #                 </div>
-# #                 <p class="fs-6">Our Business Development Team will get in touch with you within
-# #                     24 business hours
-# #                 </p>
-# #             </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                <h4>Important Links</h4>
+                <p><a href="privacy-policy">Privacy Policy</a></p>
+                <p><a href="terms">Terms & conditions</a></p>
+                <p><a href="refund">Refund Policy</a></p>
+                <p><a data-bs-toggle="modal" data-bs-target="#speaker-opportunity-modal">Speaker Opportunity</a></p>
+                <p><a data-bs-toggle="modal" data-bs-target="#on-demand-modal">On-demand webinar</a></p>
+                <!--<p><a href="unsubscribe">Unsubscribe</a></p>-->
+            </div>
+            <div class="col-lg-4 col-md-12 col-12 ps-lg-5 ps-0">
+                <div class="row mx-0 row-gap-3">
+                    <div class="col-lg-12 col-md-6 col-12">
+                        <h4>Get in Touch</h4>
+                        <div class="signup_form">
+                            <form action="#" class="subscribe">
+                                <input type="text" class="subscribe__input" placeholder="Enter Email Address">
+                                <button type="button" class="subscribe__btn"><i class="fas fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-12 text-md-end text-start text-lg-start">
+                        <!-- social icons -->
+                        <div class="social-icons my-lg-5 my-3">
+                            <a href="https://www.facebook.com/aabhyasa/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                            <!--<a href=""><i class="fa-brands fa-x-twitter" target="_blank"></i></a>-->
+                            <!--<a href=""><i class="fa-brands fa-pinterest-p" target="_blank"></i></a>-->
+                            <a href="https://www.linkedin.com/company/aabhyasa-technologies-pvt-ltd/mycompany/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <!--<a href="" target="_blank"><i class="fa-brands fa-youtube"></i></a>-->
 
-# #         </div>
-# #     </div>
-# # </div>
-# # <!-- speaker-opportunity form modal  end-->
+                        </div>
+                        <!-- payment icons -->
+                        <div class="payment-options">
+                            <span>
+                                <span href="">
+                                    <img src="images/payment-icon/master-card.png" alt="" class="img-fluid">
+                                </span>
+                                <span href="">
+                                    <img src="images/payment-icon/visa.png" alt="" class="img-fluid">
+                                </span>
+                                <span href="">
+                                    <img src="images/payment-icon/maestro.png" alt="" class="img-fluid">
+                                </span>
+                                <span href="">
+                                    <img src="images/payment-icon/american-express.png" alt="" class="img-fluid">
+                                </span>
+                                <span href="">
+                                    <img src="images/payment-icon/paypal.png" alt="" class="img-fluid">
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
-# # <script>
-# #     function validateInput(input) {
-# #             var regex = /^[a-zA-Z0-9 ]*$/;
-# #             var goFor = input.id;
-# #             console.log(goFor);
-# #             var submitButton =document.getElementById('submit');
-# #             switch (goFor) {
-# #                 case 'nameOD':
-# #                     var alertMessage = document.getElementById('alertMessageNameOD');
-# #                     break;
-# #                 case 'topicOD':
-# #                     var alertMessage = document.getElementById('alertMessageTopic');
-# #                     break;
-# #                 case 'organizationOD':
-# #                     var alertMessage = document.getElementById('alertMessageOrg');
-# #                     break;
-# #                 case 'name':
-# #                     var alertMessage = document.getElementById('alertMessageName');
-# #                     break;
-# #                 case 'subject':
-# #                     var alertMessage = document.getElementById('alertMessageSubject');
-# #                     break;
-# #                 case 'message':
-# #                     var alertMessage = document.getElementById('alertMessageText');
-# #                     break;
+
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-bottom">
+        <span style="text-transform: lowercase;">© Aabhyasa Technologies Pvt. Ltd. , All rights reserved.</span>
+    </div>
+</footer>
+
+<!-- On demand form modal  -->
+<div class="modal fade " id="on-demand-modal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header-div text-center">
+                <img src="images/google-forms.png" alt="" class="img-fluid">
+                <h2 class="modal-title" id="staticBackdropLabel">On-Demand Webinar</h2>
+                <p>Discover how we can meet your compliance needs.</p>
+                <a data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </a>
+            </div>
+
+            <div class="modal-body">
+                <form action="save-form.php?frm=onDemand" method="POST">
+                    <fieldset>
+                        <div class="form-control">
+                            <input type="text" name="nameOD" id="nameOD" oninput="validateInput(this)" required>
+                            <label> Name </label>
+                            <span id="alertMessageNameOD" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>
+                        </div>
+                        <div class="form-control">
+                            <input type="text" name="organizationOD" id="organizationOD" oninput="validateInput(this)" required>
+                            <label> Organization </label>
+                            <span id="alertMessageOrg" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>
+                        </div>
+                        <div class="form-control">
+                            <input type="text" name="topicOD" id="topicOD" oninput="validateInput(this)" required>
+                            <label> Topic </label>
+                            <span id="alertMessageTopic" style="color: red; display: none;">Only alphanumeric characters are allowed!</span>
+                        </div>
+                        <div class="form-control">
+                            <input type="text" name="phoneOD" id="phoneOD" oninput="validatePhoneNumber(this)" required>
+                            <label> Phone </label>
+                            <span id="phoneAlertMessage" style="color: red; display: none;">Invalid phone number. Please enter a valid phone number.</span>
+                        </div>
+                    </fieldset>
+                    <div class="cta my-3">
+                        <button type="submit" name="submit" id="submit" class="submit-btn d-block">Submit Request</button>
+                        <a href="mailto:info@aabhyasa.com" target="_blank" class="main-btn d-block mt-3"><i class="fa-solid fa-phone-volume"></i>
+                            Quick Contact</a>
+                    </div>
+                </form>
+                <p class="fs-6">Our Business Development Team will get in touch with you within
+                    24 business hours
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- On demand form modal  end-->
+
+<!-- speaker-opportunity form modal  -->
+<div class="modal fade " id="speaker-opportunity-modal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header-div text-center">
+                <img src="images/speaker-form.png" alt="" class="img-fluid">
+                <h3 class="modal-title" id="staticBackdropLabel">Opportunity To Be A Part Of Our Expert Panel</h3>
+                <p>Just fill out this simple form below, and soon you will hear from us!</p>
+                <a data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </a>
+            </div>
+
+            <div class="modal-body">
+                <fieldset>
+                    <div class="form-control">
+                        <input type="text" required>
+                        <label> Name </label>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" required>
+                        <label> Job Title </label>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" required>
+                        <label> Phone </label>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" required>
+                        <label> Company </label>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" required>
+                        <label> Fax </label>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" required>
+                        <label> Email </label>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" required>
+                        <label> Industry </label>
+                    </div>
+                </fieldset>
+                <div class="cta my-3">
+                    <a class="submit-btn d-block">Submit Request</a>
+                    <a href="callto:+1234567890" class="main-btn d-block mt-3"><i class="fa-solid fa-phone-volume"></i>
+                        Quick Call</a>
+                </div>
+                <p class="fs-6">Our Business Development Team will get in touch with you within
+                    24 business hours
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- speaker-opportunity form modal  end-->
+
+<script>
+    function validateInput(input) {
+            var regex = /^[a-zA-Z0-9 ]*$/;
+            var goFor = input.id;
+            console.log(goFor);
+            var submitButton =document.getElementById('submit');
+            switch (goFor) {
+                case 'nameOD':
+                    var alertMessage = document.getElementById('alertMessageNameOD');
+                    break;
+                case 'topicOD':
+                    var alertMessage = document.getElementById('alertMessageTopic');
+                    break;
+                case 'organizationOD':
+                    var alertMessage = document.getElementById('alertMessageOrg');
+                    break;
+                case 'name':
+                    var alertMessage = document.getElementById('alertMessageName');
+                    break;
+                case 'subject':
+                    var alertMessage = document.getElementById('alertMessageSubject');
+                    break;
+                case 'message':
+                    var alertMessage = document.getElementById('alertMessageText');
+                    break;
             
-# #                 default:
-# #                     break;
-# #             }
-# #             if (!regex.test(input.value)) {
-# #                 alertMessage.style.display = 'inline';
-# #                 submitButton.disabled = true;
-# #             } else {
-# #                 alertMessage.style.display = 'none';
-# #                 submitButton.disabled = false;
-# #             }
-# #         }
-# #         function validateEmail(input) {
-# #             var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-# #             var alertMessage = document.getElementById('alertMessageEmail');
-# #             var submitButton =document.getElementById('submit');
-# #             if (!regex.test(input.value)) {
-# #                 alertMessage.style.display = 'inline';
-# #                 submitButton.disabled = true;
-# #             } else {
-# #                 alertMessage.style.display = 'none';
-# #                 submitButton.disabled = false;
-# #             }
-# #         }
+                default:
+                    break;
+            }
+            if (!regex.test(input.value)) {
+                alertMessage.style.display = 'inline';
+                submitButton.disabled = true;
+            } else {
+                alertMessage.style.display = 'none';
+                submitButton.disabled = false;
+            }
+        }
+        function validateEmail(input) {
+            var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            var alertMessage = document.getElementById('alertMessageEmail');
+            var submitButton =document.getElementById('submit');
+            if (!regex.test(input.value)) {
+                alertMessage.style.display = 'inline';
+                submitButton.disabled = true;
+            } else {
+                alertMessage.style.display = 'none';
+                submitButton.disabled = false;
+            }
+        }
 
-# #         function validateEmailSubscribe(input) {
-# #             var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-# #             var alertMessage = document.getElementById('alertMessageEmailSubscribe');
-# #             var submitButtonS =document.getElementById('submitSubscription');
-# #             if (!regex.test(input.value)) {
-# #                 alertMessage.style.display = 'inline';
-# #                 submitButtonS.disabled = true;
-# #             } else {
-# #                 alertMessage.style.display = 'none';
-# #                 submitButtonS.disabled = false;
-# #             }
-# #         }
+        function validateEmailSubscribe(input) {
+            var regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            var alertMessage = document.getElementById('alertMessageEmailSubscribe');
+            var submitButtonS =document.getElementById('submitSubscription');
+            if (!regex.test(input.value)) {
+                alertMessage.style.display = 'inline';
+                submitButtonS.disabled = true;
+            } else {
+                alertMessage.style.display = 'none';
+                submitButtonS.disabled = false;
+            }
+        }
 
-# #         function validatePhoneNumber(input) {
-# #             var regex = /^(\+1\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$|^(\+91[\-\s]?)?[6-9]\d{9}$/;
-# #             var alertMessage = document.getElementById('phoneAlertMessage');
-# #             var submitButton =document.getElementById('submit');
-# #             if (!regex.test(input.value)) {
-# #                 alertMessage.style.display = 'inline';
-# #                 submitButton.disabled = true;
-# #             } else {
-# #                 alertMessage.style.display = 'none';
-# #                 submitButton.disabled = false;
-# #             }
-# #         }
-# # </script>
-# #     <script src="assets/js/jquery-3.7.1.js"></script>
+        function validatePhoneNumber(input) {
+            var regex = /^(\+1\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$|^(\+91[\-\s]?)?[6-9]\d{9}$/;
+            var alertMessage = document.getElementById('phoneAlertMessage');
+            var submitButton =document.getElementById('submit');
+            if (!regex.test(input.value)) {
+                alertMessage.style.display = 'inline';
+                submitButton.disabled = true;
+            } else {
+                alertMessage.style.display = 'none';
+                submitButton.disabled = false;
+            }
+        }
+</script>
+    <script src="assets/js/jquery-3.7.1.js"></script>
 
-# # <!-- jQuery -->
+<!-- jQuery -->
 
-# # <!-- Bootstrap 5 JS -->
-# # <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-# # <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-# # <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap 5 JS -->
+<script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-# # <!-- number animation js cdn -->
-# # <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<!-- number animation js cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
 
 
-# # <!-- custom js  -->
-# # <script src="assets/js/script.js"></script>
+<!-- custom js  -->
+<script src="assets/js/script.js"></script>
 
-# # <!-- Owl carousel js  -->
-# # <script src="assets/js/owl.carousel.js"></script>
-# # <script src="assets/js/owl.carousel.min.js"></script></body>
+<!-- Owl carousel js  -->
+<script src="assets/js/owl.carousel.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script></body>
 
-# # </html>
-# # """
+</html>
+"""
 
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
+# from selenium import webdriver
+# from selenium.webdriver.chrome.service import Service
+# from selenium.webdriver.chrome.options import Options
+# from webdriver_manager.chrome import ChromeDriverManager
 
-options = Options()
-options.add_argument("--headless")
-options.add_argument("--disable-gpu")
-options.add_argument("--no-sandbox")
-options.add_argument("start-maximized")
-options.add_argument("disable-infobars")
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36")
+# options = Options()
+# options.add_argument("--headless")
+# options.add_argument("--disable-gpu")
+# options.add_argument("--no-sandbox")
+# options.add_argument("start-maximized")
+# options.add_argument("disable-infobars")
+# options.add_argument("--disable-dev-shm-usage")
+# options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36")
 
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service, options=options)
-url = "https://www.eversana.com/thought-leaders/?sf_paged=3"
-driver.get(url)
-html = driver.page_source
-driver.quit()
+# service = Service(ChromeDriverManager().install())
+# driver = webdriver.Chrome(service=service, options=options)
+# url = "https://www.eversana.com/thought-leaders/?sf_paged=3"
+# driver.get(url)
+# html = driver.page_source
+# driver.quit()
 
 import json
-import pandas as pd
+import requests
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from groq import Groq
 
 EXCLUDED_TAGS = {
     "header", "footer", "script", "style", "noscript", "nav", "iframe", 
@@ -5969,13 +5971,10 @@ class HtmlExtractor:
             return node
 
         self.extracted_data = build_json(soup.body) if soup.body else []
-        if isinstance(self.extracted_data, list):
-            return self.extracted_data
-        else:
-            return [self.extracted_data]
+        return self.extracted_data if isinstance(self.extracted_data, list) else [self.extracted_data]
 
-    def process_extracted_data(self, output_file="output.json"):
-        """Processes the extracted data and sends it to `process_and_save_data` for further processing."""
+    def process_extracted_data(self):
+        """Processes the extracted data and returns the final structured output."""
         tag_data = {}
 
         def extract_tags(node):
@@ -5999,28 +5998,50 @@ class HtmlExtractor:
                     extract_tags(item)
 
         extract_tags(self.extracted_data)
-
         tag_data = {key: value for key, value in tag_data.items() if value}
 
-        # Now we pass the extracted tag data to `process_and_save_data` for further processing
-        self.process_and_save_data(tag_data, output_file)
+        checked_keys = {key for key in tag_data.keys() if len({tuple(single_data) if isinstance(single_data, list) else single_data for single_data in tag_data[key]}) == 1}
+        unique_keys = [key for key in tag_data.keys() if key not in checked_keys]
 
-    def process_and_save_data(self, data, output_file):
-        # Get the unique keys
-        checked_keys = {key for key in data.keys() if len({tuple(single_data) if isinstance(single_data, list) else single_data for single_data in data[key]}) == 1}
-        unique_keys = [key for key in data.keys() if key not in checked_keys]
+        return {key: tag_data[key] for key in unique_keys}
 
-        # Build the new data
-        new_data = {}
-        for key in unique_keys:
-            new_data[key] = data[key]
+class DeepSeekExtractor:
+    def __init__(self, api_key):
+        self.api_key = api_key
+        self.client = Groq(api_key=self.api_key)
 
-        # Save the processed data to a JSON file
-        with open(output_file, 'w') as output_file:
-            json.dump(new_data, output_file, indent=4)
+    def query_model(self, json_input):
+        """Send JSON input to DeepSeek and get raw CSV output."""
+        prompt = (
+            "Extract structured data from this JSON input and return as raw CSV text with columns: "
+            "Name, Email, Phone, Title, Social Link (if available).\n\n"
+            f"{json.dumps(json_input, indent=2)}"
+        )
 
-        print(f"Data has been processed and saved to '{output_file.name}'")
+        response = self.client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model="deepseek-r1-distill-llama-70b",
+            temperature=0.2,
+            max_tokens=2048
+        )
 
-extractor = HtmlExtractor(html)
-extracted_data = extractor.extract_and_save_data()
-extractor.process_extracted_data(output_file="processed_data.json")
+        return response.choices[0].message.content if response else None
+
+    def save_csv(self, csv_text, filename="extracted_data.csv"):
+        """Save raw CSV text to a file."""
+        with open(filename, mode="w", encoding="utf-8") as file:
+            file.write(csv_text)
+
+        print(f"Data saved to {filename}")
+
+if __name__ == "__main__":
+    API_KEY = "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"
+    html_extractor = HtmlExtractor(html)
+    extracted_data = html_extractor.extract_and_save_data()
+    processed_data = html_extractor.process_extracted_data()
+
+    deepseek_extractor = DeepSeekExtractor(API_KEY)
+    csv_output = deepseek_extractor.query_model(processed_data)
+
+    if csv_output:
+        deepseek_extractor.save_csv(csv_output)
