@@ -2,7 +2,7 @@ import re
 import dns.resolver
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
-from core.models.domain_data import create_domain_data, is_domain_scraped
+from api.models.domain_data import DomainData as DomainDataModel
 
 class DomainData:
     EXCLUDED_TAGS = {
@@ -87,32 +87,32 @@ class DomainData:
         return title, description
 
     @staticmethod
-    def extract_data(driver, website_id):
+    def extract_data(driver, url_id):
+        """Extracts domain data and saves it using Django models."""
         domain = urlparse(driver.current_url).netloc.split("www.")[-1].lower()
-
-        if is_domain_scraped(domain):
-            print(f"Domain {domain} is already scraped. Skipping...")
-            return
 
         soup = BeautifulSoup(driver.page_source, "html.parser")
         title, description = DomainData.get_domain_data(soup)
         social_links, emails, phone_numbers = DomainData.extract_contact_data(soup)
         mx_records, mail_provider, mail_status = DomainData.get_mx_records(domain)
 
-        result = create_domain_data(
+        # Save Domain Data using your Django API model
+        domain_entry, created = DomainDataModel.objects.get_or_create(
             domain=domain,
-            website_id=website_id,
-            title=title,
-            emails=list(emails),
-            phone_numbers=list(phone_numbers),
-            social_media_links=list(social_links),
-            mx_records=mx_records,
-            mail_status=mail_status,
-            mail_provider=mail_provider,
-            company_description=description,
+            defaults={
+                "url_id": url_id,  # Storing the URL ID
+                "title": title,
+                "emails": list(emails),
+                "phone_numbers": list(phone_numbers),
+                "social_media_links": list(social_links),
+                "mx_records": mx_records,
+                "mail_status": mail_status,
+                "mail_provider": mail_provider,
+                "description": description,
+            },
         )
 
-        if isinstance(result, str):
-            print(f"Failed to create domain data for {domain}: {result}")
+        if created:
+            print(f"Domain data for {domain} successfully saved with URL ID {url_id}.")
         else:
-            print(f"Domain data for {domain} successfully saved.")
+            print(f"Domain data for {domain} already exists and was not updated.")

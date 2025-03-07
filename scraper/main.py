@@ -1,8 +1,10 @@
 import time
+from urllib.parse import urlparse
 from selenium.webdriver.common.by import By
 from scraper.helper.cookie_handler import manage_cookies
 from scraper.helper.smooth_scrolling import smooth_scroll
 from scraper.extracted_data.domain_data import DomainData
+from api.models.domain_data import DomainData as DomainDataModel
 from scraper.helper.browser_initializer import initialize_browser
 from scraper.extracted_data.structured_data_extractor import DataExtracted
 from scraper.helper.pagination_detector import detect_pagination, start_pagination
@@ -37,7 +39,7 @@ def main(browser):
     else:
         start_pagination(browser, locator)
 
-def run_scraping(url, website_id, headless=False):
+def run_scraping(url, url_id, headless=False):
     """Initializes the browser, extracts data, and returns the result."""
     browser, session_id = initialize_browser(headless=headless)
     
@@ -46,9 +48,27 @@ def run_scraping(url, website_id, headless=False):
         time.sleep(2)
         manage_cookies(browser)
         smooth_scroll(browser)
-        
-        DomainData.extract_data(browser, website_id)
-        DataExtracted.extract_data(browser)
+
+        domain = urlparse(url).netloc.split("www.")[-1].lower()
+        existing_domain = DomainDataModel.objects.filter(domain=domain).first()
+
+        if not existing_domain:
+            DomainData.extract_data(browser, url_id)
+        else:
+            DomainDataModel.objects.create(
+                url_id=url_id,
+                domain=existing_domain.domain,
+                title=existing_domain.title,
+                description=existing_domain.description,
+                emails=existing_domain.emails,
+                phone_numbers=existing_domain.phone_numbers,
+                social_media_links=existing_domain.social_media_links,
+                mail_status=existing_domain.mail_status,
+                mx_records=existing_domain.mx_records,
+                mail_provider=existing_domain.mail_provider,
+            )
+
+        DataExtracted.extract_data(browser, url_id)
 
     except Exception as e:
         print(f"Error scraping {url}: {str(e)}")

@@ -105,19 +105,10 @@
           </td>
           <td>
             <!-- Buttons with onclick events to show the id and button clicked in the console -->
-            <button 
-              id="domain-data-{{ entry.id }}" 
-              class="btn btn-primary" 
+            <button id="view-data-{{ entry.id }}" class="btn btn-primary" 
               {% if entry.scraping_status != 'completed' %}disabled{% endif %}
               onclick="showIdAndButton('{{ entry.id }}', this)">
-              Domain Data
-            </button>
-            <button 
-              id="staff-data-{{ entry.id }}" 
-              class="btn btn-secondary" 
-              {% if entry.scraping_status != 'completed' %}disabled{% endif %}
-              onclick="showIdAndButton('{{ entry.id }}', this)">
-              Staff Data
+              View Data
             </button>
           </td>
         </tr>
@@ -155,308 +146,24 @@
   </table>
 </div>
 
-<h2 id="StaffDataHeading" class="text-center mb-5 mt-5" style="display: none;">Staff Data</h2>
 <div class="mt-4 container" style="overflow-x: auto;">
-  <table id="StaffDataTable" class="table table-bordered table-striped" style="display: none;">
+  <table id="scrapedDataTable" class="table table-bordered table-striped" style="display: none;">
     <thead class="table-dark">
-      <tr>
-        <th scope="col" style="min-width: 150px;">ID</th>
-        <th scope="col" style="min-width: 150px;">URL</th>
-        <th scope="col" style="min-width: 500px;">DATA</th>
-        <th scope="col" style="min-width: 150px;">Created At</th>
-      </tr>
+        <tr>
+            <th scope="col" style="min-width: 150px;">Name</th>
+            <th scope="col" style="min-width: 150px;">Email</th>
+            <th scope="col" style="min-width: 150px;">Phone</th>
+            <th scope="col" style="min-width: 150px;">Designation</th>
+            <th scope="col" style="min-width: 150px;">Social Link</th>
+        </tr>
     </thead>
-    <tbody id="StaffDataRows">
+    <tbody>
     </tbody>
   </table>
 </div>
+
+<div id="tableContainer" class="container mt-4" style="display:none">
+  <h2 class="mb-3">Extracted Tables</h2>
+  <div id="tablesWrapper" style="overflow: auto; max-height: 500px" class="mb-5"></div>
+</div>
 {% endblock content %}
-
-{% block script %}
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-      const toggleSwitch = document.getElementById("toggleSwitch");
-      const urlForm = document.getElementById("urlForm");
-      const fileForm = document.getElementById("fileForm");
-
-      function addPaginationField(form) {
-          let existingField = form.querySelector('input[name="pagination"]');
-          if (existingField) {
-              existingField.remove();
-          }
-          if (toggleSwitch.checked) {
-              let hiddenInput = document.createElement("input");
-              hiddenInput.type = "hidden";
-              hiddenInput.name = "pagination";
-              hiddenInput.value = "on";
-              form.appendChild(hiddenInput);
-          }
-      }
-
-      urlForm.addEventListener("submit", function() {
-          addPaginationField(urlForm);
-      });
-
-      fileForm.addEventListener("submit", function() {
-          addPaginationField(fileForm);
-      });
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    let isCompleted = false;
-    let hasError = false;
-  
-    function fetchDataForWebsite(websiteId) {
-      if (!websiteId) return;
-
-      const apiUrl = `/api/scraping-status/${websiteId}`;
-  
-      fetch(apiUrl)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data[0]) {
-            showDomainData([data[0]]);
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-          hasError = true;
-        });
-    }
-  
-    function showDomainData(data) {
-      const rowsContainer = document.getElementById('domainDataRows');
-      const table = document.getElementById('domainDataTable');
-      const heading = document.getElementById('domainDataHeading');
-  
-      if (!rowsContainer) {
-        console.error('Error: Table body container not found');
-        return;
-      }
-  
-      rowsContainer.innerHTML = '';
-      heading.style.display = 'block';
-      table.style.display = 'block';
-  
-      data.forEach(domain => {
-        const row = document.createElement('tr');
-        const emails = Array.isArray(domain.emails) ? domain.emails.join(", ") : '';
-        const phoneNumbers = Array.isArray(domain.phone_numbers) ? domain.phone_numbers.join(", ") : '';
-        const socialMediaLinks = Array.isArray(domain.social_media_links) ? domain.social_media_links.join(", ") : '';
-        const contactLinks = Array.isArray(domain.contact_links) ? domain.contact_links.join(", ") : '';
-        const mxRecords = Array.isArray(domain.mx_records) ? domain.mx_records.join(", ") : '';
-  
-        row.innerHTML = `
-          <td>${domain.domain || ''}</td>
-          <td>${domain.title || ''}</td>
-          <td>${emails}</td>
-          <td>${phoneNumbers}</td>
-          <td>${socialMediaLinks}</td>
-          <td>${contactLinks}</td>
-          <td>${mxRecords}</td>
-          <td>${domain.mail_status || ''}</td>
-          <td>${domain.mail_provider || ''}</td>
-          <td>${domain.company_description || ''}</td>
-          <td>${domain.created_at || ''}</td>
-          <td>${domain.updated_at || ''}</td>
-        `;
-        rowsContainer.appendChild(row);
-      });
-    }
-
-    function fetchStaffData(websiteId) {
-      if (!websiteId) return;
-      
-      const apiUrl = `/api/staff-data/${websiteId}`;
-      
-      fetch(apiUrl)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data.length > 0) {
-            showStaffData(data);
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching staff data:', error);
-        });
-    }
-  
-    function showStaffData(data) {
-      const rowsContainer = document.getElementById('StaffDataRows');
-      const table = document.getElementById('StaffDataTable');
-      const heading = document.getElementById('StaffDataHeading');
-
-      
-      if (!rowsContainer) {
-        console.error('Error: Staff table body container not found');
-        return;
-      }
-      
-      rowsContainer.innerHTML = '';
-      heading.style.display = 'block';
-      table.style.display = 'block';
-      
-      console.log(data)
-      data.forEach(staff => {
-        const row = document.createElement('tr');
-        const formattedData = JSON.stringify(staff.data, null, 2);
-        row.innerHTML = `
-          <td>${staff.id || ''}</td>
-          <td><a href="${staff.url || ''}" target="_blank">${staff.url || ''}</a></td>
-          <td>
-              <textarea class="data-textarea" style="width: 100%; height: 100px;">${formattedData}</textarea>
-              <button class="ai-clean-btn" style="margin-top: 5px;">AI Cleaner</button>
-          </td>
-          <td>${staff.scraped_at || ''}</td>
-        `;
-        
-        function getCSRFToken() {
-          return document.cookie.split('; ').find(row => row.startsWith('csrftoken='))
-                 ?.split('=')[1];
-        }
-
-        const button = row.querySelector('.ai-clean-btn');
-        const textArea = row.querySelector('.data-textarea');
-
-        button.addEventListener('click', () => {
-            fetch("/api/extract-data/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    'X-CSRFToken': getCSRFToken()
-                },
-                body: JSON.stringify(formattedData, null, 2)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.csv_data) {
-                    textArea.value = data.csv_data;
-                } else {
-                    alert("Error: " + (data.error || "Failed to process data"));
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("An error occurred while processing the request.");
-            });
-        });
-        rowsContainer.appendChild(row);
-      });
-    }
-  
-    window.showIdAndButton = function(id, button) {
-      var buttonText = button.textContent.trim();
-
-      if (buttonText === "Domain Data") {
-        console.log("Button clicked: Domain Data for ID: " + id);
-        fetchDataForWebsite(id);
-      } else if (buttonText === "Staff Data") {
-        console.log("Button clicked: Staff Data for ID: " + id);
-        fetchStaffData(id);
-      } else {
-        console.log("Unknown button clicked for ID: " + id + " " + buttonText);
-      }
-    };
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const rowsPerPage = 10;
-    const table = document.getElementById("websites-table");
-    const tbody = table.querySelector("tbody");
-    const rows = Array.from(tbody.querySelectorAll("tr"));
-    const paginationContainer = document.createElement("div");
-    paginationContainer.classList.add("pagination-container", "mt-3", "text-end");
-    table.parentNode.appendChild(paginationContainer);
-  
-    let currentPage = 1;
-    function displayPage(pageNumber) {
-        const start = (pageNumber - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-        rows.forEach((row, index) => {
-            row.style.display = index >= start && index < end ? "" : "none";
-        });
-        currentPage = pageNumber;
-        setupPagination();
-    }
-  
-    function setupPagination() {
-        paginationContainer.innerHTML = "";
-        const totalPages = Math.ceil(rows.length / rowsPerPage);
-        const maxVisiblePages = 5;
-        let startPage = Math.max(1, currentPage - 2);
-        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-  
-        if (startPage > 1) {
-            addPaginationButton("<", currentPage - 1);
-            if (startPage > 2) {
-                addPaginationButton("...", null);
-            }
-        }
-        for (let i = startPage; i <= endPage; i++) {
-            addPaginationButton(i, i);
-        }
-        if (endPage < totalPages) {
-            if (endPage < totalPages - 1) {
-                addPaginationButton("...", null);
-            }
-            addPaginationButton(">", currentPage + 1);
-        }
-    }
-  
-    function addPaginationButton(text, page) {
-        const button = document.createElement("button");
-        button.innerText = text;
-        button.classList.add("btn", "btn-sm", "btn-outline-primary", "m-1");
-        if (page === currentPage) {
-            button.classList.add("active");
-        }
-        if (page !== null) {
-            button.addEventListener("click", () => displayPage(page));
-        } else {
-            button.disabled = true;
-        }
-        paginationContainer.appendChild(button);
-    }
-  
-    if (rows.length > rowsPerPage) {
-        displayPage(1);
-    }
-
-    // Sorting functionality with button in headers
-    document.querySelectorAll("#websites-table th").forEach((header, index) => {
-      const sortButton = document.createElement("span");
-      sortButton.innerHTML = " ↑";
-      sortButton.dataset.order = "asc";
-      header.appendChild(sortButton);
-
-      header.style.cursor = "pointer";
-      header.addEventListener("click", function () {
-          const isAscending = sortButton.dataset.order === "asc";
-          sortButton.dataset.order = isAscending ? "desc" : "asc";
-          sortButton.innerHTML = isAscending ? " ↓" : " ↑";
-          const sortedRows = rows.sort((rowA, rowB) => {
-              const cellA = rowA.cells[index].textContent.trim();
-              const cellB = rowB.cells[index].textContent.trim();
-              return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
-          });
-          tbody.innerHTML = "";
-          sortedRows.forEach(row => tbody.appendChild(row));
-          displayPage(1);
-      });
-    });
-  
-  });
-</script>
-{% endblock script %}

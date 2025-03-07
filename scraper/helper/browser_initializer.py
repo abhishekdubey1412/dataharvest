@@ -5,9 +5,9 @@ import undetected_chromedriver as uc
 
 def get_random_user_agent():
     user_agents = [
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 Edg/133.0.1770.50"
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/134.0",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.1770.50"
     ]
     return random.choice(user_agents)
 
@@ -25,7 +25,7 @@ def initialize_browser(headless=False):
     if headless:
         options.add_argument("--headless=new")
 
-    driver = uc.Chrome(options=options, headless=headless, version_main=133, keep_alive=True)
+    driver = uc.Chrome(options=options, headless=headless, version_main=134, keep_alive=True)
 
     time.sleep(random.uniform(1, 3))
 
