@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 
 <div class="container text-center mt-5 mb-5">
@@ -122,7 +123,7 @@
   </table>
 </div>
 
-<h2 id="domainDataHeading" class="text-center mb-5 mt-5" style="display: none;">Domain Data</h2>
+<h2 id="domainDataHeading" class="text-center mb-2 mt-5" style="display: none;">Domain Data</h2>
 <div class="mt-4 container" style="overflow-x: auto;">
   <table id="domainDataTable" class="table table-bordered table-striped" style="display: none;">
     <thead class="table-dark">
@@ -146,7 +147,8 @@
   </table>
 </div>
 
-<div class="mt-4 container" style="overflow-x: auto;">
+<h2 id="scrapedDataHeading" class="text-center mt-5" style="display: none;">Scraped Data</h2>
+<div class="mt-4 mb-5 overflow-auto container" style="max-height: 500px">
   <table id="scrapedDataTable" class="table table-bordered table-striped" style="display: none;">
     <thead class="table-dark">
         <tr>
@@ -166,4 +168,6 @@
   <h2 class="mb-3">Extracted Tables</h2>
   <div id="tablesWrapper" style="overflow: auto; max-height: 500px" class="mb-5"></div>
 </div>
+
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock content %}

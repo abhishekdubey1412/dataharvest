@@ -14,6 +14,9 @@ def main(browser, session_id, url_id):
     manage_cookies(browser)
     smooth_scroll(browser)
 
+    if url_id.pagination_enabled:
+        print(f"Yes: {url_id.pagination_enabled}")
+
     locator = detect_pagination(browser)
     if not locator:     
         iframes = browser.find_elements(By.TAG_NAME, "iframe")
@@ -87,17 +90,6 @@ def run_scraping(url, url_id, headless=False):
             except Exception:
                 pass
 
-# if __name__ == "__main__":
-#     browser, session_id = initialize_browser()
-#     urls = filter_urls(urls)
-#     for url in urls:       
-#         browser.get(url)
-#         extract_data(browser)
-#         
-#         rotate_user_agent(browser, session_id) 
-#     browser.quit()
-
-    
 # urls = [
 #     "https://www.wbs.ac.uk/about/people/",
 #     "https://tpchd.org/info/staff-directory/",

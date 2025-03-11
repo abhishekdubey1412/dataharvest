@@ -196,6 +196,8 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(response => response.json())
             .then(data => {
                 const table = document.querySelector("#scrapedDataTable");
+                const heading = document.querySelector("#scrapedDataHeading");
+                heading.style.display = "block"
                 const tableBody = table.querySelector("tbody");
     
                 tableBody.innerHTML = "";
@@ -254,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let tableHTML = "";
                 let hasData = false;
     
-                data.forEach(item => {
+                data.forEach((item, index) => {
                     if (typeof item.tables_data !== "object" || item.tables_data === null) {
                         console.warn("Missing or invalid tables_data for item:", item);
                         return;
@@ -268,13 +270,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
     
                         hasData = true;
-                        const tableId = `table-${tableKey.replace(/\s+/g, "-").toLowerCase()}`;
+                        const tableId = `data${index}-${tableKey.replace(/\s+/g, "-").toLowerCase()}`;
     
                         tableHTML += `
                             <div class="card shadow-lg rounded-3 border-0 mb-4" id="${tableId}">
                                 <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
                                     <h5 class="mb-0 text-uppercase fw-bold">${tableKey}</h5>
-                                    <button type="button" class="btn btn-danger" onclick="window.DeleteTable('${tableId}')"> Delete Table </button>
+                                    <button type="button" class="btn btn-danger" onclick="window.DeleteTable('${tableId}', ${item.id})"> Delete Table </button>
                                 </div>
                                 <div class="card-body p-3">
                                     <div class="table-responsive" style="max-height: 400px; overflow-y: auto; overflow-x: auto;">
@@ -345,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function() {
         selectElement.setAttribute("data-selected", newName);
     };
     
-    window.DeleteTable = function (tableId) {
+    window.DeleteTable = function (tableId, raw_id) {
         const tableElement = document.getElementById(tableId);
         const popupHTML = `
             <div id="deletePopup" class="position-fixed top-50 start-50 translate-middle p-4 shadow-lg rounded bg-white" style="width: 300px; z-index: 1050;">
@@ -353,7 +355,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <p class="text-center text-muted">Are you sure you want to delete this table?</p>
                 <div class="d-flex justify-content-between mt-3">
                     <button class="btn btn-secondary" onclick="window.closeDeletePopup()">Cancel</button>
-                    <button class="btn btn-danger" onclick="window.confirmDeleteTable('${tableId}')">Delete</button>
+                    <button class="btn btn-danger" onclick="window.confirmDeleteTable('${tableId}', '${raw_id}')">Delete</button>
                 </div>
             </div>
             <div id="popupBackdrop" class="position-fixed top-0 start-0 w-100 h-100 bg-dark" style="z-index: 1049; opacity:0.5;"></div>
@@ -366,7 +368,46 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("popupBackdrop")?.remove();
     };
     
-    window.confirmDeleteTable = function (tableId) {
+    window.confirmDeleteTable = function (tableId, raw_id) {
+
+        fetch(`/api/raw-data/${raw_id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${accessToken}`
+            }
+        })
+        .then(response => response.json())
+        .then(async data => {
+            try {
+                let tablesData = typeof data.tables_data === "string" ? JSON.parse(data.tables_data) : data.tables_data;
+                const key = tableId.split("-")[1];
+    
+                if (key in tablesData) {
+                    delete tablesData[key];
+    
+                    await fetch(`/api/raw-data/${raw_id}/`, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${accessToken}`
+                        },
+                        body: JSON.stringify({ tables_data: tablesData })
+                    })
+                    .then(updateResponse => updateResponse.json())
+                    .then(updatedData => {
+                        console.log(`Key [${key}] removed and updated on server.`, updatedData);
+                    })
+                    .catch(updateError => console.error("Error updating data on server:", updateError));
+                } else {
+                    console.warn(`Key [${key}] not found in tablesData`);
+                }
+            } catch (error) {
+                console.error("Error parsing tables_data:", error);
+            }
+        })
+        .catch(error => console.error("Error fetching data:", error));
+
         const tableElement = document.getElementById(tableId);
         if (tableElement) {
             tableElement.remove();
@@ -420,8 +461,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     window.saveTable = async function (tableId, id, raw_id) {
         window.closeSavePopup();
-    
-        const table = document.querySelector(`#${tableId} table`);
+        
+        const table = document.querySelector(`#${tableId}`);
         if (!table) {
             console.error(`Table with ID ${tableId} not found!`);
             return;
@@ -447,7 +488,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
         console.log(`Table Data for ${tableId}:`, tableData);
     
-        // Create an array of fetch promises to ensure all data is saved first
         const saveRequests = tableData.map(row => {
             const requestData = {
                 url_id: id,
@@ -472,10 +512,8 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error("Error saving data:", error));
         });
     
-        // Wait until all data has been saved before proceeding
         await Promise.all(saveRequests);
     
-        // Fetch and update raw data only after all rows have been saved
         fetch(`/api/raw-data/${raw_id}`, {
             method: "GET",
             headers: {
@@ -514,12 +552,13 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error("Error fetching data:", error));
     
-        // Remove table container and fetch updated scraped data
         const tableContainer = document.getElementById(tableId);
+        
         if (tableContainer) {
             tableContainer.remove();
             fetchScrapedData(id);
         }
+
     };  
     
     window.aiCleanTable = function (tableId) {

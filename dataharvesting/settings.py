@@ -141,10 +141,10 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=365 * 10),  # 10 years (Adjust as needed)
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=365 * 20),  # 20 years
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=365 * 10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=365 * 20),
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
-    "SIGNING_KEY": "your_secret_key",  # Keep this secret!
+    "SIGNING_KEY": "your_secret_key",
     "AUTH_HEADER_TYPES": ("Bearer",),
 }
