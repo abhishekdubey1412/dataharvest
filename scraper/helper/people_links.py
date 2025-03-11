@@ -72,4 +72,4 @@ class PeopleLinkScraper:
         else:
             print("   ❌ No repeated base paths found.")
         
-        return repeated_paths
+        return list(repeated_paths)

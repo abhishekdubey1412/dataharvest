@@ -4,29 +4,25 @@ from selenium.webdriver.common.by import By
 from scraper.helper.cookie_handler import manage_cookies
 from scraper.helper.smooth_scrolling import smooth_scroll
 from scraper.extracted_data.domain_data import DomainData
+from scraper.helper.people_links import PeopleLinkScraper
 from scraper.data_cleaning.deduplication import DataCleaner
 from api.models.domain_data import DomainData as DomainDataModel
 from scraper.helper.browser_initializer import initialize_browser
 from scraper.extracted_data.structured_data_extractor import DataExtracted
 from scraper.helper.pagination_detector import detect_pagination, start_pagination
 
-def main(browser, session_id, url_id):
-    manage_cookies(browser)
-    smooth_scroll(browser)
-
-    if url_id.pagination_enabled:
-        print(f"Yes: {url_id.pagination_enabled}")
-
+def handle_pagination(browser, session_id, url_id):
     locator = detect_pagination(browser)
-    if not locator:     
+    
+    if not locator:
         iframes = browser.find_elements(By.TAG_NAME, "iframe")
-
+        
         for index, iframe in enumerate(iframes):
             try:
                 browser.switch_to.frame(iframe)
-                print(f"switched to iframe {index + 1}")
+                print(f"Switched to iframe {index + 1}")
                 iframe_text = browser.find_element(By.TAG_NAME, "body").text.strip()
-
+                
                 if iframe_text:
                     iframe_locator = detect_pagination(browser)
                     if not iframe_locator:
@@ -36,18 +32,37 @@ def main(browser, session_id, url_id):
                     start_pagination(browser, session_id, iframe_locator, url_id)
                     cleaner = DataCleaner(url_id.id)
                     cleaner.process()
-
+                
                 browser.switch_to.default_content()
-
+            
             except Exception as e:
                 print(f"Error switching to iframe {index + 1}: {e}")
-
+        
         DataExtracted.extract_data(browser, url_id)
-
+        
     else:
         start_pagination(browser, session_id, locator, url_id)
         cleaner = DataCleaner(url_id.id)
-        cleaner.process()   
+        cleaner.process()
+
+def main(browser, session_id, url_id):
+    manage_cookies(browser)
+    smooth_scroll(browser)
+
+    if url_id.pagination_enabled:
+        handle_pagination(browser, session_id, url_id)
+    else:
+        handle_pagination(browser, session_id, url_id)
+        scraper = PeopleLinkScraper(browser)
+        repeated_paths = scraper.process()
+
+        if url_id.url in repeated_paths:
+            repeated_paths.remove(url_id.url)
+
+        for page in repeated_paths:
+            print(page)
+            browser.get(page)
+            handle_pagination(browser, session_id, url_id)
 
 def run_scraping(url, url_id, headless=False):
     """Initializes the browser, extracts data, and returns the result."""
