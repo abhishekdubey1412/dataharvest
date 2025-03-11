@@ -4,12 +4,13 @@ from selenium.webdriver.common.by import By
 from scraper.helper.cookie_handler import manage_cookies
 from scraper.helper.smooth_scrolling import smooth_scroll
 from scraper.extracted_data.domain_data import DomainData
+from scraper.data_cleaning.deduplication import DataCleaner
 from api.models.domain_data import DomainData as DomainDataModel
 from scraper.helper.browser_initializer import initialize_browser
 from scraper.extracted_data.structured_data_extractor import DataExtracted
 from scraper.helper.pagination_detector import detect_pagination, start_pagination
 
-def main(browser):
+def main(browser, session_id, url_id):
     manage_cookies(browser)
     smooth_scroll(browser)
 
@@ -29,15 +30,21 @@ def main(browser):
                         browser.switch_to.default_content()
                         continue
                     
-                    start_pagination(browser, iframe_locator)
+                    start_pagination(browser, session_id, iframe_locator, url_id)
+                    cleaner = DataCleaner(url_id.id)
+                    cleaner.process()
 
                 browser.switch_to.default_content()
 
             except Exception as e:
                 print(f"Error switching to iframe {index + 1}: {e}")
 
+        DataExtracted.extract_data(browser, url_id)
+
     else:
-        start_pagination(browser, locator)
+        start_pagination(browser, session_id, locator, url_id)
+        cleaner = DataCleaner(url_id.id)
+        cleaner.process()   
 
 def run_scraping(url, url_id, headless=False):
     """Initializes the browser, extracts data, and returns the result."""
@@ -68,7 +75,7 @@ def run_scraping(url, url_id, headless=False):
                 mail_provider=existing_domain.mail_provider,
             )
 
-        DataExtracted.extract_data(browser, url_id)
+        main(browser,session_id,url_id)
 
     except Exception as e:
         print(f"Error scraping {url}: {str(e)}")

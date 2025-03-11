@@ -16,45 +16,47 @@ class DeepSeekExtractor:
     def query_model(self, json_input):
         """Send JSON input to DeepSeek and get raw CSV output."""
         prompt = (
-            'Extract structured data of staff (persons, members, or employees) from the given JSON and return ONLY raw CSV data '
-            'with the following columns: "Name", "Email", "Phone", "Designation", and "Social Link" (only relevant social media links, if available).\n\n'
+            'Extract structured staff data from the given JSON and return ONLY raw CSV data with the following columns:\n'
+            '"Name", "Email", "Phone", "Designation", and "Social Link" (only valid social media profile links, if available).\n\n'
             
-            'Output must follow strict CSV formatting:\n'
-            '- Double quotes around all values.\n'
+            '### Output Requirements ###\n'
+            '- Strict CSV format: Double quotes around all values.\n'
             '- Proper escaping of double quotes within values.\n'
             
-            'Email Validation:\n'
+            '### Email Validation ###\n'
             '- Ensure "Email" follows a proper email format (e.g., "example@domain.tld").\n'
-            '- A valid email must contain "@" and a domain (any type, such as ".com", ".org", ".net", ".edu", ".gov", ".co.uk", ".io", etc.).\n'
+            '- A valid email must contain "@" and a domain (e.g., ".com", ".org", ".net", ".edu", ".gov", ".co.uk", ".io", etc.).\n'
             '- If "Email" is missing or invalid, leave it empty ("").\n'
             
-            'Phone Validation:\n'
-            '- Ensure "Phone" contains only valid phone numbers, formatted correctly.\n'
+            '### Phone Validation ###\n'
+            '- Extract only valid phone numbers and normalize formatting.\n'
             '- Remove any non-numeric characters except "+" at the beginning for international numbers.\n'
             '- Acceptable formats include:\n'
             '  - "+1 1234567890" (International format with country code)\n'
-            '  - "123-456-7890" or "(123) 456-7890" (Common US formats, should be normalized)\n'
+            '  - "123-456-7890" or "(123) 456-7890" (US formats, should be normalized)\n'
             '- If "Phone" is missing or invalid, leave it empty ("").\n'
             
-            'Social Link Validation:\n'
-            '- Extract only valid social media profile links from platforms such as LinkedIn, Twitter (X), Facebook, Instagram, or other professional networking sites.\n'
+            '### Social Link Validation ###\n'
+            '- Extract only valid social media profile links from LinkedIn, Twitter (X), Facebook, Instagram, or other professional networking sites.\n'
             '- Ensure the link starts with "http://" or "https://".\n'
-            '- Do not include general website links, only direct profile URLs.\n'
+            '- Do NOT include general website links—only direct profile URLs.\n'
             '- If no valid social media link is found, leave it empty ("").\n'
             
-            'Deduplication Rules:\n'
-            '- Remove duplicate entries based on "Email" and "Name". If "Email" is empty, use "Name" + "Phone" for deduplication.\n'
+            '### Deduplication Rules ###\n'
+            '- Remove duplicate entries based on "Email".\n'
+            '- If "Email" is empty, deduplicate using "Name" + "Phone".\n'
             
-            'Additional Rules:\n'
+            '### Additional Rules ###\n'
             '- If no valid staff data is found, return "None".\n'
-            '- NO additional explanations, text, or formatting—ONLY raw CSV output.\n\n'
+            '- NO explanations, text, or formatting—ONLY raw CSV output.\n\n'
             
-            'Example:\n'
+            '### Example Output ###\n'
             '"Name","Email","Phone","Designation","Social Link"\n'
+            '"Abhishek Dubey","","","",""\n'
             '"Lakeesha Brown","","","Vice President and Chief Human Resources Officer",""\n'
             '"Gopal Yadav","gopal.y@gmail.com","+91 7376096573","Software Engineer","https://www.linkedin.com/in/gopal-y-959451208/"\n\n'
             
-            f'JSON Input:\n{json.dumps(json_input, indent=2)}'
+            f'### JSON Input ###\n{json.dumps(json_input, indent=2)}'
         )
 
         try:

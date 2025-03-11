@@ -2,7 +2,9 @@ import time
 from urllib.parse import urlparse
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from scraper.helper.browser_initializer import rotate_user_agent
 from selenium.webdriver.support import expected_conditions as EC
+from scraper.extracted_data.structured_data_extractor import DataExtracted
 from scraper.helper.smooth_scrolling import scroll_to_element, smooth_scroll
 
 def is_pagination_present(driver, locator):
@@ -73,17 +75,19 @@ def detect_pagination(driver):
         
     return False
 
-def start_pagination(driver, locator):
+def start_pagination(driver, session_id, locator, url_id):
     """
     Iterate through pagination until no next button is found.
 
     :param driver: Selenium WebDriver instance
     :param locator: Tuple containing By strategy and locator value
     """
+    raw_data = []
     last_page_source = driver.find_element(By.TAG_NAME, "body").text.strip()
     
     while True:
         smooth_scroll(driver)
+        raw_data.append(DataExtracted.extract_data(driver, url_id))
 
         try:
             next_button = driver.find_element(*locator)
@@ -116,8 +120,12 @@ def start_pagination(driver, locator):
             except Exception:
                 break
         
+        rotate_user_agent(driver, session_id)
+
         current_page_source = driver.find_element(By.TAG_NAME, "body").text.strip()
         if current_page_source == last_page_source:
             break
 
         last_page_source = current_page_source
+    
+    return raw_data

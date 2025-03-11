@@ -30,7 +30,7 @@ def scrape_url(url):
                 return
 
             website = update_website_status(url, "in_progress")
-            run_scraping(url, website, headless=True)
+            run_scraping(url, website, headless=False)
             update_website_status(url, "completed")
 
         except Exception as e:

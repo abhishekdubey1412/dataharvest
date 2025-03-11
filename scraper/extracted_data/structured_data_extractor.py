@@ -181,7 +181,8 @@ class DataExtracted:
         raw_data = RawData.objects.create(
             url_id=url_id,
             tables_data=tables_data,
-            raw_data=processed_data
+            raw_data=processed_data,
+            raw_json=extracted_data
         )
 
-        process_raw_data(raw_data)
+        return raw_data
