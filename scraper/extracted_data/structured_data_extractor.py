@@ -2,39 +2,6 @@ import json
 import requests
 from bs4 import BeautifulSoup
 from api.models.raw_data import RawData
-from api.models.scraped_data import ScrapedData
-
-def call_extract_data_api(json_input):
-    url = 'http://127.0.0.1:8000/staff-ai-extract/'
-    try:
-        response = requests.post(url, json=json_input)
-
-        if response.status_code == 200:
-            return response.json()
-        else:
-            return {"error": f"Error: {response.status_code}, {response.text}"}
-
-    except requests.exceptions.RequestException as e:
-        return {"error": f"Request failed: {str(e)}"}
-
-def process_raw_data(raw_data):
-    """Call API to extract structured data from raw data and save it."""
-    filter_json_data = call_extract_data_api({"raw_data": raw_data.raw_data})
-
-    if "data" in filter_json_data:
-        for item in filter_json_data["data"]:
-            ScrapedData.objects.create(
-                url_id=raw_data.url_id,
-                raw_id=raw_data,
-                name=item.get("name"),
-                email=item.get("email"),
-                phone=item.get("phone"),
-                designation=item.get("designation"),
-                social_link=item.get("social_link"),
-                created_at=raw_data.scraped_at
-            )
-    else:
-        print("No data found or API error.")
 
 EXCLUDED_TAGS = {
     "header", "footer", "script", "style", "noscript", "nav", "iframe", 

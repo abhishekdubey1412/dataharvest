@@ -15,7 +15,6 @@ class PeopleLinkScraper:
         self.html = driver.page_source
         self.base_domain = urlparse(self.url).netloc
         self.filtered_links = set()
-        self.repeated_paths = []
 
     def extract_and_filter_links(self):
         """Extract and filter links based on people-related keywords and domain matching."""
@@ -44,32 +43,16 @@ class PeopleLinkScraper:
             print(f"   - {link}")
         
         return self.filtered_links
-
-    def get_repeated_base_paths(self):
-        """Find commonly occurring base paths to prioritize relevant pages."""
-        path_counts = Counter()
-        
-        for url in self.filtered_links:
-            parsed = urlparse(url)
-            path_parts = parsed.path.rstrip('/').split('/')
-            
-            if len(path_parts) > 1:
-                base_path = f'{parsed.scheme}://{parsed.netloc}' + '/'.join(path_parts[:-1]) + '/'
-                path_counts[base_path] += 1
-
-        self.repeated_paths = [path for path, count in path_counts.items() if count > 1] or list(self.filtered_links)
-        return self.repeated_paths
     
     def process(self):
         """Run all steps of the scraping process."""
         self.extract_and_filter_links()
-        repeated_paths = self.get_repeated_base_paths()
         
         print("\n🟠 Repeated Base Paths (Common URL Structures):")
-        if repeated_paths:
-            for path in repeated_paths:
+        if self.filtered_links:
+            for path in self.filtered_links:
                 print(f"   - {path}")
         else:
             print("   ❌ No repeated base paths found.")
         
-        return list(repeated_paths)
+        return list(self.filtered_links)

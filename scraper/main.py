@@ -5,11 +5,11 @@ from scraper.helper.cookie_handler import manage_cookies
 from scraper.helper.smooth_scrolling import smooth_scroll
 from scraper.extracted_data.domain_data import DomainData
 from scraper.helper.people_links import PeopleLinkScraper
-from scraper.data_cleaning.deduplication import DataCleaner
 from api.models.domain_data import DomainData as DomainDataModel
-from scraper.helper.browser_initializer import initialize_browser
+from scraper.data_cleaning.deduplication import DataCleaner, CleanTable
 from scraper.extracted_data.structured_data_extractor import DataExtracted
 from scraper.helper.pagination_detector import detect_pagination, start_pagination
+from scraper.helper.browser_initializer import initialize_browser, rotate_user_agent
 
 def handle_pagination(browser, session_id, url_id):
     locator = detect_pagination(browser)
@@ -30,8 +30,7 @@ def handle_pagination(browser, session_id, url_id):
                         continue
                     
                     start_pagination(browser, session_id, iframe_locator, url_id)
-                    cleaner = DataCleaner(url_id.id)
-                    cleaner.process()
+                    DataCleaner(url_id.id).process()
                 
                 browser.switch_to.default_content()
             
@@ -39,11 +38,10 @@ def handle_pagination(browser, session_id, url_id):
                 print(f"Error switching to iframe {index + 1}: {e}")
         
         DataExtracted.extract_data(browser, url_id)
-        
+
     else:
         start_pagination(browser, session_id, locator, url_id)
-        cleaner = DataCleaner(url_id.id)
-        cleaner.process()
+        DataCleaner(url_id.id).process()
 
 def main(browser, session_id, url_id):
     manage_cookies(browser)
@@ -60,7 +58,8 @@ def main(browser, session_id, url_id):
             repeated_paths.remove(url_id.url)
 
         for page in repeated_paths:
-            print(page)
+            smooth_scroll(browser)
+            rotate_user_agent(browser, session_id)
             browser.get(page)
             handle_pagination(browser, session_id, url_id)
 
@@ -94,6 +93,7 @@ def run_scraping(url, url_id, headless=False):
             )
 
         main(browser,session_id,url_id)
+        CleanTable(url_id.id).process()
 
     except Exception as e:
         print(f"Error scraping {url}: {str(e)}")
